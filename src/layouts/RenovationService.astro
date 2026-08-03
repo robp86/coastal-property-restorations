@@ -1,0 +1,120 @@
+---
+// Renovation service template (spec §3):
+// hero → gallery → process → what affects cost → reviews → FAQ → CTA
+import Base from './Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ReviewsStrip from '../components/ReviewsStrip.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
+import { reviewsFor } from '../data/reviews';
+
+interface Props {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroTitle: string;
+  heroText: string;
+  processSteps: { title: string; text: string }[];
+  costFactors: string[];
+  faqs: { q: string; a: string }[];
+}
+
+const {
+  slug,
+  metaTitle,
+  metaDescription,
+  heroTitle,
+  heroText,
+  processSteps,
+  costFactors,
+  faqs,
+} = Astro.props;
+---
+
+<Base title={metaTitle} description={metaDescription}>
+  <TrustBar />
+
+  <section class="hero section">
+    <div class="container">
+      <h1>{heroTitle}</h1>
+      <p class="hero__text">{heroText}</p>
+      <div class="hero__actions">
+        <a href="/contact" class="btn btn--primary">Get a Free Consultation</a>
+        <a href={site.phoneHref} class="btn btn--outline">📞 {site.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Our Work</h2>
+      <div class="grid grid--3">
+        {/* TODO: 6–12 real finished-project photos (spec §3) */}
+        <div class="img-placeholder">Real project photo</div>
+        <div class="img-placeholder">Real project photo</div>
+        <div class="img-placeholder">Real project photo</div>
+        <div class="img-placeholder">Real project photo</div>
+        <div class="img-placeholder">Real project photo</div>
+        <div class="img-placeholder">Real project photo</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        {processSteps.map((step) => (
+          <li>
+            <strong>{step.title}</strong>
+            <p style="margin: 0.25rem 0 0;">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What Affects the Cost</h2>
+      {/* Ranges and factors only — no hard quotes (spec §3). */}
+      <ul style="max-width: 42rem;">
+        {costFactors.map((f) => <li>{f}</li>)}
+      </ul>
+      {/* TODO: financing blurb here if owner confirms a financing partner (spec Q6) */}
+    </div>
+  </section>
+
+  <ReviewsStrip items={reviewsFor(slug)} />
+
+  <FAQ items={faqs} />
+
+  <CTABand heading="Ready to start planning?" emergency={false} />
+</Base>
+
+<style>
+  .hero {
+    background: linear-gradient(rgba(12, 36, 64, 0.8), rgba(12, 36, 64, 0.8)),
+      var(--blue-dark);
+    /* TODO: layer best finished-project photo behind the gradient */
+    color: #fff;
+  }
+
+  .hero__text {
+    font-size: 1.15rem;
+    max-width: 42rem;
+    color: #d5e4ec;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 24rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__actions { flex-direction: row; max-width: none; }
+  }
+</style>

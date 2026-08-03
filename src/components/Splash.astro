@@ -1,0 +1,83 @@
+---
+// Intro splash — the owner's blue logo screen, kept within spec §2 guardrails:
+// homepage only (only index.astro imports this), ≤2s, tap/click skips, once per
+// session, skipped entirely for reduced-motion users. Must never delay LCP content —
+// the page renders underneath; this is just an overlay.
+---
+
+<div id="splash" class="splash" aria-hidden="true">
+  <div class="splash__inner">
+    <img src="/images/logo.avif" alt="Coastal Property Restorations" width="285" height="165" />
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var el = document.getElementById('splash');
+    if (!el) return;
+    var seen = false;
+    try {
+      seen = sessionStorage.getItem('cpr-splash') === '1';
+    } catch (e) {}
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (seen || reduced) {
+      el.remove();
+      return;
+    }
+
+    try {
+      sessionStorage.setItem('cpr-splash', '1');
+    } catch (e) {}
+
+    el.classList.add('splash--show');
+
+    function dismiss() {
+      el.classList.add('splash--hide');
+      setTimeout(function () {
+        el.remove();
+      }, 400);
+    }
+
+    el.addEventListener('click', dismiss);
+    setTimeout(dismiss, 1800);
+  })();
+</script>
+
+<style>
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    /* Matches the original intro graphic: navy radial glow behind the logo */
+    background: radial-gradient(ellipse at center, #17436b 0%, var(--blue-dark) 55%, #071527 100%);
+    display: none;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .splash--show { display: grid; }
+
+  .splash--hide {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .splash__inner {
+    text-align: center;
+    color: #fff;
+    animation: splash-in 0.6s ease both;
+    padding: 1rem;
+  }
+
+  .splash__inner img {
+    width: clamp(240px, 55vw, 440px);
+    height: auto;
+    margin-inline: auto;
+  }
+
+  @keyframes splash-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+</style>

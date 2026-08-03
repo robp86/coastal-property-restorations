@@ -1,0 +1,185 @@
+/* Mobile-first global styles. System font stack — zero webfont cost (spec §4 perf budget). */
+
+:root {
+  /* Brand palette sampled from the logo: sky blue #32aade + white on navy */
+  --sky: #32aade; /* logo sky blue — accents, highlights */
+  --blue: #0e6394; /* darker shade of the logo's sky-blue hue — buttons, links */
+  --blue-dark: #0c2440; /* brand navy from the logo artwork */
+  --blue-glow: #a0e3ff; /* light blue from the logo text edges */
+  --blue-light: #e2f2fb; /* tint of the logo sky blue */
+  --red: #c0392b; /* emergency CTAs only — deliberate contrast against the blues */
+  --red-dark: #a02f22;
+  --ink: #1c2530;
+  --muted: #5b6b7a;
+  --line: #d6e5ee;
+  --bg: #ffffff;
+  --bg-soft: #f2f8fc;
+  --radius: 10px;
+  --container: 72rem;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* room for the sticky call bar on mobile */
+  padding-bottom: 4.25rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: clamp(1.75rem, 5vw, 2.75rem); }
+h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--blue); }
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.section {
+  padding-block: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .section { padding-block: 4rem; }
+}
+
+.section--soft { background: var(--bg-soft); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn--emergency {
+  background: var(--red);
+  color: #fff;
+}
+.btn--emergency:hover { background: var(--red-dark); }
+
+.btn--primary {
+  background: var(--blue);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--blue-dark); }
+
+.btn--outline {
+  background: #fff;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.btn--outline:hover { background: var(--blue-light); }
+
+.btn--block { display: block; width: 100%; }
+
+/* Simple card */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Utility */
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 960px) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Numbered process steps */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  display: grid;
+  gap: 1rem;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 1rem 1rem 1rem 3.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+/* Placeholder image block — swap for real photos (public/images/README.md) */
+.img-placeholder {
+  background: repeating-linear-gradient(45deg, #dfe8ee, #dfe8ee 12px, #d3dfe7 12px, #d3dfe7 24px);
+  border: 1px dashed #a9bcc9;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  min-height: 12rem;
+  text-align: center;
+  padding: 1rem;
+}

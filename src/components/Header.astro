@@ -1,0 +1,148 @@
+---
+import { site } from '../data/site';
+
+const nav = [
+  { href: '/roofing', label: 'Roofing' },
+  { href: '/water-storm-damage', label: 'Restoration' },
+  { href: '/kitchen-remodeling', label: 'Kitchens' },
+  { href: '/bathroom-remodeling', label: 'Bathrooms' },
+  { href: '/reviews', label: 'Reviews' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__brand">
+      <img src="/images/logo.avif" alt="Coastal Property Restorations — Home" width="285" height="165" class="header__logo" />
+    </a>
+
+    <a href={site.phoneHref} class="header__phone btn btn--emergency">
+      📞 {site.phone}
+    </a>
+
+    <details class="header__menu">
+      <summary aria-label="Menu">Menu</summary>
+      <nav>
+        <ul>
+          {nav.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </details>
+
+    <nav class="header__nav" aria-label="Main">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Navy header — the logo artwork is light-on-transparent and needs a dark background */
+  .header {
+    background: var(--blue-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-block: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .header__brand {
+    margin-right: auto;
+    display: flex;
+  }
+
+  .header__logo {
+    height: 52px;
+    width: auto;
+  }
+
+  .header__phone {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  /* Mobile menu */
+  .header__menu summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius);
+    color: #fff;
+  }
+  .header__menu summary::-webkit-details-marker { display: none; }
+
+  .header__menu nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: var(--blue-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .header__menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .header__menu a {
+    display: block;
+    padding: 0.6rem 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+  }
+  .header__menu a:hover { background: rgba(255, 255, 255, 0.1); }
+
+  /* Desktop nav */
+  .header__nav { display: none; }
+
+  @media (min-width: 960px) {
+    .header__menu { display: none; }
+
+    .header__nav {
+      display: block;
+      width: 100%;
+      order: 3;
+    }
+
+    .header__nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .header__nav a {
+      text-decoration: none;
+      color: #dce8ef;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .header__nav a:hover { color: var(--blue-glow); }
+
+    .header__logo { height: 60px; }
+  }
+</style>

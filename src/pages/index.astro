@@ -1,0 +1,149 @@
+---
+// Homepage — anatomy per spec §2.
+import Base from '../layouts/Base.astro';
+import Splash from '../components/Splash.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ReviewsStrip from '../components/ReviewsStrip.astro';
+import CTABand from '../components/CTABand.astro';
+import { site, cities } from '../data/site';
+import { services } from '../data/services';
+import { reviews } from '../data/reviews';
+---
+
+<Base
+  title="Coastal Property Restorations | Roofing, Storm Damage & Remodeling — Punta Gorda, FL"
+  description={site.description}
+>
+  <Splash />
+  <TrustBar />
+
+  {/* Hero — the house shot from the original site goes behind this (spec §2.2). */}
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1>Storm Damage? Remodeling? We've Got Your Home.</h1>
+      <p class="hero__sub">
+        Licensed &amp; insured restoration and remodeling across Southwest Florida —
+        with 24/7 emergency response.
+      </p>
+      <div class="hero__actions">
+        <a href={site.phoneHref} class="btn btn--emergency hero__btn">
+          🚨 Emergency? Call Now
+        </a>
+        <a href="/contact" class="btn btn--primary hero__btn">
+          🛠️ Planning a Project? Free Estimate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="center">What We Do</h2>
+      <div class="grid grid--4">
+        {services.map((s) => (
+          <a href={`/${s.slug}`} class="card service-card">
+            {/* TODO: real photo per service (public/images/README.md) */}
+            <div class="img-placeholder" style="min-height: 9rem;">{s.title} photo</div>
+            <div class="service-card__body">
+              <h3>{s.title}</h3>
+              <p class="muted">{s.short}</p>
+              <span class="service-card__link">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <h2>Why Southwest Florida Homeowners Choose Coastal</h2>
+      <ul class="why">
+        <li><strong>We answer.</strong> Real people, 24/7, when your home can't wait.</li>
+        <li><strong>Insurance-ready documentation.</strong> Photos, scopes, and moisture logs your adjuster can actually use. <a href="/insurance-help">How the insurance process works →</a></li>
+        <li><strong>One company, start to finish.</strong> Mitigation through rebuild — no handoffs between contractors.</li>
+        <li><strong>Local and licensed.</strong> Based in Punta Gorda, serving our own community.</li>
+      </ul>
+    </div>
+  </section>
+
+  <ReviewsStrip items={reviews.slice(0, 3)} />
+
+  <section class="section">
+    <div class="container">
+      <h2 class="center">Serving Southwest Florida</h2>
+      <p class="center muted">
+        {cities.map((c, i) => (
+          <>
+            <a href={`/service-areas/${c.slug}`}>{c.name}</a>{i < cities.length - 1 ? ' · ' : ''}
+          </>
+        ))}
+        {' · '}
+        <a href="/service-areas">See all areas</a>
+      </p>
+    </div>
+  </section>
+
+  <CTABand heading="Your home can't wait. Neither do we." />
+</Base>
+
+<style>
+  .hero {
+    /* The house shot from the original site, darkened for text contrast */
+    background:
+      linear-gradient(rgba(12, 36, 64, 0.72), rgba(12, 36, 64, 0.82)),
+      url('/images/hero-house.avif') center / cover no-repeat,
+      var(--blue-dark);
+    color: #fff;
+  }
+
+  .hero__inner {
+    padding-block: 3.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero__inner { padding-block: 6rem; }
+  }
+
+  .hero__sub {
+    font-size: 1.15rem;
+    color: #d5e4ec;
+    max-width: 38rem;
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    max-width: 24rem;
+    margin: 1.5rem auto 0;
+  }
+
+  @media (min-width: 640px) {
+    .hero__actions { flex-direction: row; justify-content: center; max-width: none; }
+  }
+
+  .hero__btn { font-size: 1.15rem; padding: 1rem 1.75rem; }
+
+  .service-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card__body { padding: 1rem 1.1rem 1.25rem; }
+  .service-card__body h3 { margin-bottom: 0.35rem; }
+  .service-card__body p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+  .service-card__link { color: var(--blue); font-weight: 700; font-size: 0.92rem; }
+  .service-card:hover { border-color: var(--blue); }
+
+  .why {
+    max-width: 46rem;
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 1.25rem;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+// City pages generated from src/data/site.ts. RULE (spec §3): no copied content —
+// each city ships only when its intro is ~300 genuinely local words. Until then
+// the TODO placeholder makes the gap visible.
+import Base from '../../layouts/Base.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import ReviewsStrip from '../../components/ReviewsStrip.astro';
+import CTABand from '../../components/CTABand.astro';
+import { cities } from '../../data/site';
+import { services } from '../../data/services';
+import { reviews } from '../../data/reviews';
+
+export function getStaticPaths() {
+  return cities.map((city) => ({ params: { city: city.slug }, props: { city } }));
+}
+
+const { city } = Astro.props;
+const cityReviews = reviews.filter((r) => r.city === city.name).slice(0, 3);
+---
+
+<Base
+  title={`Restoration & Remodeling in ${city.name}, FL | Coastal Property Restorations`}
+  description={`Roofing, storm damage restoration, and home remodeling in ${city.name}, Florida. Licensed & insured, 24/7 emergency response. Call 239-272-7064.`}
+>
+  <TrustBar />
+
+  <section class="section">
+    <div class="container" style="max-width: 46rem;">
+      <h1>Restoration &amp; Remodeling in {city.name}</h1>
+      <p>{city.intro}</p>
+
+      <h2>Services in {city.name}</h2>
+      <ul>
+        {services.map((s) => (
+          <li>
+            <a href={`/${s.slug}`}>{s.title}</a> — {s.short}
+          </li>
+        ))}
+      </ul>
+
+      {/* TODO: real project photo + short story from this city when available —
+          this is what makes the page rank and convert (spec §3). */}
+      <div class="img-placeholder">Real {city.name} project photo + caption</div>
+
+      {/* TODO: embedded map centered on this city */}
+    </div>
+  </section>
+
+  {cityReviews.length > 0 && (
+    <ReviewsStrip items={cityReviews} heading={`${city.name} Homeowners Say`} />
+  )}
+
+  <CTABand heading={`Need help in ${city.name}? We're close.`} />
+</Base>

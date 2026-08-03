@@ -1,0 +1,37 @@
+---
+// Bottom-fixed call bar, mobile only (spec §4). Desktop shows the number in the header.
+import { site } from '../data/site';
+---
+
+<div class="callbar">
+  <a href={site.phoneHref} class="callbar__btn">📞 Call Now — {site.phone}</a>
+</div>
+
+<style>
+  .callbar {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(4px);
+  }
+
+  .callbar__btn {
+    display: block;
+    text-align: center;
+    background: var(--red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.85rem;
+    border-radius: var(--radius);
+  }
+
+  @media (min-width: 768px) {
+    .callbar { display: none; }
+  }
+</style>

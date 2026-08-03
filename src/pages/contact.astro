@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Contact Us | Free Estimates | Coastal Property Restorations"
+  description="Contact Coastal Property Restorations in Punta Gorda, FL for 24/7 emergency response or a free remodeling estimate. Call 239-272-7064."
+>
+  <TrustBar />
+
+  <section class="section">
+    <div class="container contact">
+      <div>
+        <h1>Get In Touch</h1>
+        <p style="max-width: 34rem;">
+          Emergency? Skip the form — <a href={site.phoneHref}><strong>call {site.phone}</strong></a> and
+          talk to a real person. For estimates and everything else, the form works great.
+        </p>
+
+        <h2 style="font-size: 1.15rem;">Coastal Property Restorations</h2>
+        <p>
+          {site.address.street}<br />
+          {site.address.city}, {site.address.state} {site.address.zip}<br />
+          <a href={site.phoneHref}>{site.phone}</a><br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <p><strong>{site.hours}</strong></p>
+
+        {/* TODO: embed Google Map (lazy-loaded iframe — after page content, not before) */}
+        <div class="img-placeholder" style="min-height: 14rem;">Google Map embed</div>
+      </div>
+
+      <LeadForm />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .contact {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+</style>

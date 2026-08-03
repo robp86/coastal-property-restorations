@@ -1,0 +1,62 @@
+---
+// LEGAL GUARDRAIL (spec §6): education only. This page explains the process and
+// what Coastal documents. It must NOT advise on coverage, predict claim outcomes,
+// or use claim-negotiation language — Florida reserves claim negotiation for
+// licensed public adjusters. Keep every future edit inside that line.
+import Base from '../layouts/Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<Base
+  title="Insurance Claim Help | How the Process Works | Coastal Property Restorations"
+  description="How the property insurance claim process works after storm or water damage in Florida — and how Coastal documents your restoration from start to finish."
+>
+  <TrustBar />
+
+  <section class="section">
+    <div class="container" style="max-width: 46rem;">
+      <h1>How the Insurance Process Works</h1>
+      <p>
+        Filing a property damage claim is stressful, especially when your home is
+        actively damaged. Here's what the process actually looks like — and what we
+        do at each step.
+      </p>
+
+      <h2>The typical claim timeline</h2>
+      <ol class="steps">
+        <li><strong>Damage happens.</strong> Take photos and video if it's safe. Prevent further damage where you reasonably can — insurers expect this.</li>
+        <li><strong>Report the claim to your insurer.</strong> Your policy number and photos get it started. Your insurer assigns an adjuster.</li>
+        <li><strong>Emergency mitigation.</strong> We stop the damage from spreading — tarping, water extraction, dry-out — and document every step with photos and readings.</li>
+        <li><strong>Adjuster inspection.</strong> Your insurer's adjuster inspects and determines coverage. Our documentation package gives them a complete, accurate picture.</li>
+        <li><strong>Scope &amp; repair.</strong> Once the claim is settled between you and your insurer, we complete the repairs to the approved scope.</li>
+      </ol>
+
+      <h2>What Coastal does — and doesn't do</h2>
+      <p>
+        <strong>We do:</strong> document all damage with photos, moisture readings,
+        and detailed written scopes; perform emergency mitigation and repairs; and
+        communicate with your insurance company's authorized representatives about
+        the work.
+      </p>
+      <p>
+        <strong>We don't:</strong> negotiate your claim or interpret your policy.
+        In Florida, claim negotiation is legally the role of you, your insurer, or a
+        licensed public adjuster. What we provide is the thorough documentation that
+        makes that process work.
+      </p>
+    </div>
+  </section>
+
+  <FAQ
+    items={[
+      { q: 'Should I call insurance or a contractor first?', a: 'If damage is actively spreading — water coming in, roof open — call a contractor first to stop it; insurers expect reasonable steps to prevent further damage. Report the claim as soon as the emergency is controlled. When in doubt, do both within the hour.' },
+      { q: 'Will my rates go up if I file a claim?', a: 'That depends on your insurer, policy, and claims history — we can\'t predict it. Your agent is the right person to ask.' },
+      { q: 'What documentation will my adjuster want?', a: 'Photos of the damage as it happened, evidence of the cause, and records of mitigation work. Our standard documentation package covers all three.' },
+      { q: 'What\'s a deductible?', a: 'The portion of the loss you pay before insurance pays the rest — set by your policy. Note that Florida hurricane deductibles are often a percentage of your home\'s insured value rather than a flat amount; check your policy\'s declarations page.' },
+    ]}
+  />
+
+  <CTABand heading="Damage to document? We're ready." />
+</Base>

@@ -1,0 +1,33 @@
+---
+// Copy below is scaffold draft — review with owner before launch.
+import RenovationService from '../layouts/RenovationService.astro';
+---
+
+<RenovationService
+  slug="bathroom-remodeling"
+  metaTitle="Bathroom Remodeling | Punta Gorda & Port Charlotte, FL | Coastal Property Restorations"
+  metaDescription="Bathroom remodeling in Punta Gorda, Port Charlotte, and Fort Myers — showers, tubs, vanities, tile, and full renovations by a licensed contractor. Free consultations."
+  heroTitle="Bathrooms Built for Florida Living"
+  heroText="Walk-in showers, modern vanities, moisture-smart materials — remodeled by licensed crews who understand what Florida humidity does to a bathroom."
+  processSteps={[
+    { title: 'Free consultation', text: 'We look at your space, listen to what\'s not working, and suggest options across budget levels.' },
+    { title: 'Design & materials', text: 'Tile, fixtures, vanity, and layout — approved by you with samples in hand before demo day.' },
+    { title: 'Detailed proposal', text: 'Written scope, timeline, and payment schedule up front.' },
+    { title: 'Build', text: 'Demo, rough-in, waterproofing done right (this is where cheap remodels fail in Florida), tile, and finish.' },
+    { title: 'Final walkthrough', text: 'We walk the finished bathroom together and stand behind the work.' },
+  ]}
+  costFactors={[
+    'Scope: fixture swap vs. full gut renovation',
+    'Shower: prefab surround vs. custom tile walk-in',
+    'Moving plumbing (relocating a toilet or shower drain adds cost)',
+    'Tile selection and coverage area',
+    'Vanity and countertop choices',
+    // TODO: add typical SW Florida price ranges once owner confirms what they're comfortable publishing
+  ]}
+  faqs={[
+    { q: 'How long does a bathroom remodel take?', a: 'Typically 2–4 weeks for a full remodel, depending on scope and tile lead times. Written timeline before we start.' },
+    { q: 'Will I be without a bathroom?', a: 'If you have a second bathroom, no problem. If it\'s your only one, we sequence the work to keep the toilet and sink usable as long as possible and tell you exactly which days are affected.' },
+    { q: 'Do you handle permits and inspections?', a: 'Yes — all permits pulled, all inspections scheduled by us.' },
+    { q: 'Can you make a bathroom more accessible?', a: 'Yes — curbless showers, grab-bar blocking, comfort-height fixtures, and wider clearances are all things we build regularly.' },
+  ]}
+/>

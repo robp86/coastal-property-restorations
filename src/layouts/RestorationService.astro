@@ -1,0 +1,136 @@
+---
+// Restoration/roofing service template (spec §3):
+// hero → "do this now" steps → process → why speed matters → insurance → reviews → photos → FAQ → CTA
+import Base from './Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ReviewsStrip from '../components/ReviewsStrip.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
+import { reviewsFor } from '../data/reviews';
+
+interface Props {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroTitle: string;
+  heroText: string;
+  urgentHeading: string;
+  urgentSteps: string[];
+  processSteps: { title: string; text: string }[];
+  whySpeed: string;
+  faqs: { q: string; a: string }[];
+}
+
+const {
+  slug,
+  metaTitle,
+  metaDescription,
+  heroTitle,
+  heroText,
+  urgentHeading,
+  urgentSteps,
+  processSteps,
+  whySpeed,
+  faqs,
+} = Astro.props;
+---
+
+<Base title={metaTitle} description={metaDescription}>
+  <TrustBar />
+
+  <section class="hero section">
+    <div class="container">
+      <h1>{heroTitle}</h1>
+      <p class="hero__text">{heroText}</p>
+      <div class="hero__actions">
+        <a href={site.phoneHref} class="btn btn--emergency">📞 Call Now — {site.phone}</a>
+        <a href="/contact" class="btn btn--outline">Request Help Online</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <h2>{urgentHeading}</h2>
+      <ol class="steps">
+        {urgentSteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How We Handle It</h2>
+      <ol class="steps">
+        {processSteps.map((step) => (
+          <li>
+            <strong>{step.title}</strong>
+            <p style="margin: 0.25rem 0 0;">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <h2>Why Acting Fast Matters</h2>
+      <p style="max-width: 46rem;">{whySpeed}</p>
+
+      <h3 style="margin-top: 2rem;">We Work With Your Insurance</h3>
+      {/* Education/documentation only — no claim negotiation language (spec §6 legal note). */}
+      <p style="max-width: 46rem;">
+        We document every step of the job with photos, moisture readings, and detailed
+        scopes of work, and we communicate directly with your insurance company's
+        authorized representatives. We don't negotiate claims — that's your adjuster's
+        role — but our documentation makes the process smoother.
+        <a href="/insurance-help">Learn how the insurance process works →</a>
+      </p>
+    </div>
+  </section>
+
+  <ReviewsStrip items={reviewsFor(slug)} />
+
+  <section class="section">
+    <div class="container">
+      <h2>Recent Work</h2>
+      <div class="grid grid--3">
+        {/* TODO: replace with real before/after photos (public/images/README.md) */}
+        <div class="img-placeholder">Before/after photo — real project</div>
+        <div class="img-placeholder">Before/after photo — real project</div>
+        <div class="img-placeholder">Before/after photo — real project</div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CTABand />
+</Base>
+
+<style>
+  .hero {
+    background: linear-gradient(rgba(12, 36, 64, 0.85), rgba(12, 36, 64, 0.85)),
+      var(--blue-dark);
+    /* TODO: layer real service photo behind the gradient */
+    color: #fff;
+  }
+
+  .hero__text {
+    font-size: 1.15rem;
+    max-width: 42rem;
+    color: #d5e4ec;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 24rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__actions { flex-direction: row; max-width: none; }
+  }
+</style>

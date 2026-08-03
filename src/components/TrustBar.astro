@@ -1,0 +1,35 @@
+---
+// One row of real numbers only (spec §2.3). TODOs resolve from owner Q&A.
+import { site } from '../data/site';
+
+const items = [
+  `⭐ ${site.googleRating} Google Rating`, // TODO: real rating + count
+  '🛡️ Licensed & Insured',
+  '🕑 24/7 Emergency Response',
+  `📍 Serving Southwest Florida`,
+];
+---
+
+<div class="trustbar">
+  <div class="container trustbar__inner">
+    {items.map((item) => <span>{item}</span>)}
+  </div>
+</div>
+
+<style>
+  .trustbar {
+    /* Logo sky blue with navy text — straight from the brand artwork */
+    background: var(--sky);
+    color: var(--blue-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .trustbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.75rem;
+    justify-content: center;
+    padding-block: 0.6rem;
+  }
+</style>

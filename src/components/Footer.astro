@@ -1,0 +1,116 @@
+---
+import { site, cities } from '../data/site';
+import { services } from '../data/services';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <img src="/images/logo-footer.png" alt="" width="285" height="165" class="footer__logo" loading="lazy" />
+      <p class="footer__brand">{site.name}</p>
+      <p>
+        {site.address.street}<br />
+        {site.address.city}, {site.address.state} {site.address.zip}
+      </p>
+      <p>
+        <a href={site.phoneHref}>{site.phone}</a><br />
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+      <p>{site.hours}</p>
+    </div>
+
+    <div>
+      <p class="footer__heading">Services</p>
+      <ul>
+        {services.map((s) => (
+          <li><a href={`/${s.slug}`}>{s.title}</a></li>
+        ))}
+        <li><a href="/insurance-help">Insurance Help</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer__heading">Service Areas</p>
+      <ul>
+        {cities.map((c) => (
+          <li><a href={`/service-areas/${c.slug}`}>{c.name}</a></li>
+        ))}
+        <li><a href="/service-areas">All service areas</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer__heading">Company</p>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__legal">
+    {/* License number in the footer is a Florida advertising requirement (spec Q7). */}
+    <p>{site.license} · Licensed &amp; Insured</p>
+    <p>© {year} {site.name}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--blue-dark);
+    color: #dce8ef;
+    margin-top: 3rem;
+    padding-block: 2.5rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .footer a { color: #fff; }
+
+  .footer__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  }
+
+  .footer__logo {
+    height: 72px;
+    width: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer__brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .footer__heading {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .footer__legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    font-size: 0.85rem;
+  }
+</style>

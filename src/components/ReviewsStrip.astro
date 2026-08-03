@@ -1,0 +1,47 @@
+---
+import type { Review } from '../data/reviews';
+
+interface Props {
+  items: Review[];
+  heading?: string;
+}
+
+const { items, heading = 'What Homeowners Say' } = Astro.props;
+---
+
+<section class="section section--soft">
+  <div class="container">
+    <h2 class="center">{heading}</h2>
+    <div class="grid grid--3">
+      {items.map((r) => (
+        <blockquote class="review card">
+          <p class="review__stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p>“{r.quote}”</p>
+          <footer class="muted">
+            — {r.name}, {r.city} · {r.source}
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+    <p class="center" style="margin-top: 1.5rem;">
+      <a href="/reviews">Read all reviews →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .review {
+    margin: 0;
+    padding: 1.25rem;
+  }
+
+  .review__stars {
+    color: #e8a020;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .review footer {
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="About Us | Coastal Property Restorations | Punta Gorda, FL"
+  description="Meet the team behind Coastal Property Restorations — licensed, insured, and based in Punta Gorda, serving Southwest Florida homeowners."
+>
+  <TrustBar />
+
+  <section class="section">
+    <div class="container" style="max-width: 46rem;">
+      <h1>About Coastal Property Restorations</h1>
+
+      <div class="img-placeholder" style="margin-bottom: 1.5rem;">
+        Owner headshot / crew photo — customers hire people, not logos (spec §5)
+      </div>
+
+      {/* TODO: owner's real story in his own words — how the company started, why
+          restoration, connection to SW Florida. This page fails if it's generic. */}
+      <p>
+        TODO: Owner story. Who started the company, when, and why. What it was like
+        working through Hurricane Ian recovery. Why a local company answers the phone
+        differently than a national franchise.
+      </p>
+
+      <h2>Licensed &amp; Certified</h2>
+      <ul>
+        <li>{site.license} — TODO: real license number(s) and type</li>
+        <li>TODO: insurance certificate details</li>
+        <li>TODO: any manufacturer or industry certifications (spec Q7)</li>
+      </ul>
+
+      <h2>Where We Work</h2>
+      <p>
+        Based at {site.address.street}, {site.address.city}, {site.address.state} —
+        serving Punta Gorda, Port Charlotte, Fort Myers, and surrounding Southwest
+        Florida communities. <a href="/service-areas">See all service areas →</a>
+      </p>
+    </div>
+  </section>
+
+  <CTABand heading="Talk to us — no pressure, no obligation." emergency={false} />
+</Base>

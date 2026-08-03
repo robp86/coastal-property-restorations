@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.coastalpropertyrestorations.com/sitemap-index.xml

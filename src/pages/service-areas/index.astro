@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CTABand from '../../components/CTABand.astro';
+import { cities } from '../../data/site';
+---
+
+<Base
+  title="Service Areas | Coastal Property Restorations | Southwest Florida"
+  description="Coastal Property Restorations serves Punta Gorda, Port Charlotte, Fort Myers, and surrounding Southwest Florida communities with restoration and remodeling services."
+>
+  <TrustBar />
+
+  <section class="section">
+    <div class="container">
+      <h1>Where We Work</h1>
+      <p style="max-width: 42rem;">
+        Based in Punta Gorda and serving homeowners across Charlotte and Lee County.
+        Don't see your city? Call us — if we can get to you fast, we will.
+      </p>
+
+      <div class="grid grid--3" style="margin-top: 1.5rem;">
+        {cities.map((c) => (
+          <a href={`/service-areas/${c.slug}`} class="card area-card">
+            <h3>{c.name}</h3>
+            <p class="muted">{c.county}</p>
+            <span style="color: var(--blue); font-weight: 700;">View services →</span>
+          </a>
+        ))}
+      </div>
+
+      {/* Tier 2 city pages (Cape Coral, Naples, etc.) get added to src/data/site.ts
+          as their ~300 genuinely local words are written (spec §1, §3). */}
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
+
+<style>
+  .area-card {
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .area-card:hover { border-color: var(--blue); }
+  .area-card h3 { margin-bottom: 0.25rem; }
+</style>

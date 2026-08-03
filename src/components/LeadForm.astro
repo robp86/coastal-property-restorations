@@ -1,0 +1,94 @@
+---
+// Short form per spec §4: name, phone, city, service dropdown, optional message.
+// Every extra field costs leads — do not add fields without a conversion reason.
+//
+// TODO(launch-blocker): point `action` at the real form provider endpoint
+// (Formspark / Basin / Netlify Forms) and verify a test submission reaches the
+// owner's email AND SMS within 1 minute (spec §8).
+import { services } from '../data/services';
+
+interface Props {
+  heading?: string;
+}
+
+const { heading = 'Request a Free Estimate' } = Astro.props;
+---
+
+<form class="leadform card" method="POST" action="#TODO-form-endpoint">
+  <h2>{heading}</h2>
+
+  <label>
+    Name
+    <input type="text" name="name" required autocomplete="name" />
+  </label>
+
+  <label>
+    Phone
+    <input type="tel" name="phone" required autocomplete="tel" />
+  </label>
+
+  <label>
+    City
+    <input type="text" name="city" required autocomplete="address-level2" />
+  </label>
+
+  <label>
+    What do you need help with?
+    <select name="service" required>
+      <option value="" disabled selected>Choose one…</option>
+      {services.map((s) => (
+        <option value={s.slug}>{s.title}</option>
+      ))}
+      <option value="other">Something else</option>
+    </select>
+  </label>
+
+  <label>
+    Anything else we should know? <span class="muted">(optional)</span>
+    <textarea name="message" rows="3"></textarea>
+  </label>
+
+  <button type="submit" class="btn btn--primary btn--block">Get My Free Estimate</button>
+  <p class="muted leadform__note">We respond fast — usually within the hour during business hours.</p>
+</form>
+
+<style>
+  .leadform {
+    padding: 1.5rem;
+    display: grid;
+    gap: 1rem;
+    max-width: 30rem;
+  }
+
+  .leadform h2 { margin: 0; }
+
+  .leadform label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .leadform input,
+  .leadform select,
+  .leadform textarea {
+    font: inherit;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .leadform input:focus,
+  .leadform select:focus,
+  .leadform textarea:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 1px;
+  }
+
+  .leadform__note {
+    font-size: 0.85rem;
+    margin: 0;
+    text-align: center;
+  }
+</style>
