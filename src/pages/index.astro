@@ -17,7 +17,7 @@ import { reviews } from '../data/reviews';
   <Splash />
   <TrustBar />
 
-  {/* Hero — the house shot fully visible, no dark overlay (owner request: "wow factor"). */}
+  {/* Hero — house shot as the background, kept clearly visible (owner request). */}
   <section class="hero">
     <div class="container hero__inner">
       <h1>Storm Damage? Remodeling? We've Got Your Home.</h1>
@@ -33,14 +33,6 @@ import { reviews } from '../data/reviews';
           🛠️ Planning a Project? Free Estimate
         </a>
       </div>
-      <img
-        src="/images/hero-house.avif"
-        alt="Beautiful Southwest Florida home restored by Coastal Property Restorations"
-        class="hero__house"
-        width="1912"
-        height="998"
-        fetchpriority="high"
-      />
     </div>
   </section>
 
@@ -97,33 +89,41 @@ import { reviews } from '../data/reviews';
 
 <style>
   .hero {
-    /* Light gray so the house shot shows uncovered (owner request) */
-    background: linear-gradient(#f0f3f6, #dfe6ec);
-    color: var(--ink);
+    /* House shot as the background. The photo is a dark dusk shot, so a light
+       scrim (0.28→0.48) is enough for white text — it stays clearly visible. */
+    background:
+      linear-gradient(rgba(12, 36, 64, 0.28), rgba(12, 36, 64, 0.48)),
+      url('/images/hero-house.avif') center / cover no-repeat,
+      var(--blue-dark);
+    color: #fff;
   }
 
   .hero__inner {
-    padding-block: 2.75rem 0;
+    padding-block: 4rem;
     text-align: center;
+    min-height: 58vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   @media (min-width: 768px) {
-    .hero__inner { padding-block: 4rem 0; }
+    .hero__inner {
+      padding-block: 7rem;
+      min-height: 66vh;
+    }
+  }
+
+  .hero__inner h1 {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
   }
 
   .hero__sub {
     font-size: 1.15rem;
-    color: var(--muted);
+    color: #eaf2f7;
     max-width: 38rem;
     margin-inline: auto;
-  }
-
-  .hero__house {
-    display: block;
-    width: min(100%, 68rem);
-    margin: 2.25rem auto 0;
-    border-radius: var(--radius) var(--radius) 0 0;
-    box-shadow: 0 -12px 40px rgba(12, 36, 64, 0.22);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
   }
 
   .hero__actions {
