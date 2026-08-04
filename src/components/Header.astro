@@ -6,6 +6,10 @@ const nav = [
   { href: '/water-storm-damage', label: 'Restoration' },
   { href: '/kitchen-remodeling', label: 'Kitchens' },
   { href: '/bathroom-remodeling', label: 'Bathrooms' },
+  { href: '/flooring', label: 'Flooring' },
+  { href: '/drywall', label: 'Drywall' },
+  { href: '/painting', label: 'Painting' },
+  { href: '/insurance-claim', label: 'Insurance Claim' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -132,7 +136,8 @@ const nav = [
       margin: 0;
       padding: 0.25rem 0 0;
       display: flex;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.15rem;
     }
 
     .header__nav a {

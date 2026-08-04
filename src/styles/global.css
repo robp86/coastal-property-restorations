@@ -88,11 +88,12 @@ a { color: var(--blue); }
   cursor: pointer;
 }
 
+/* Emergency CTAs: bright logo sky blue — owner asked to keep red to small accents only */
 .btn--emergency {
-  background: var(--red);
-  color: #fff;
+  background: var(--sky);
+  color: var(--blue-dark);
 }
-.btn--emergency:hover { background: var(--red-dark); }
+.btn--emergency:hover { background: #2496c9; }
 
 .btn--primary {
   background: var(--blue);

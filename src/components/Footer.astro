@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
         {services.map((s) => (
           <li><a href={`/${s.slug}`}>{s.title}</a></li>
         ))}
-        <li><a href="/insurance-help">Insurance Help</a></li>
+        <li><a href="/insurance-claim">Insurance Claim</a></li>
       </ul>
     </div>
 
@@ -53,7 +53,7 @@ const year = new Date().getFullYear();
 
   <div class="container footer__legal">
     {/* License number in the footer is a Florida advertising requirement (spec Q7). */}
-    <p>{site.license} · Licensed &amp; Insured</p>
+    <p>{site.license} · Licensed, Bonded &amp; Insured</p>
     <p>© {year} {site.name}. All rights reserved.</p>
   </div>
 </footer>

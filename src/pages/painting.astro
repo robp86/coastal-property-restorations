@@ -1,0 +1,40 @@
+---
+// Copy and photos adapted from the owner's original site (/painting).
+import RenovationService from '../layouts/RenovationService.astro';
+---
+
+<RenovationService
+  slug="painting"
+  metaTitle="Interior & Exterior Painting | Punta Gorda, FL | Coastal Property Restorations"
+  metaDescription="Professional interior and exterior painting in Punta Gorda, Port Charlotte, and Fort Myers — premium products, precise lines, and finishes that stand up to Florida sun and moisture."
+  heroTitle="Transforming Spaces with Expert Paintwork"
+  heroText="Professional interior and exterior painting with premium products known for coverage and durability — precise lines, uniform finishes, and coatings that stand up to Florida sun, moisture, and daily life."
+  gallery={[
+    { src: '/images/painting/stunning.avif', alt: 'Freshly painted living space' },
+    { src: '/images/painting/interior.avif', alt: 'Interior painting' },
+    { src: '/images/painting/exterior.avif', alt: 'Exterior house painting' },
+    { src: '/images/painting/commercial.avif', alt: 'Commercial painting project' },
+    { src: '/images/painting/quality.avif', alt: 'Detail paintwork with clean lines' },
+    { src: '/images/painting/coatings.avif', alt: 'Protective exterior coating application' },
+  ]}
+  processSteps={[
+    { title: 'Color & scope consultation', text: 'Interior, exterior, or both — we help you pick products and colors that work in Florida light and weather.' },
+    { title: 'Surface preparation', text: 'Every surface cleaned, sanded, and primed for long-lasting adhesion. Prep is 80% of a paint job that lasts.' },
+    { title: 'Protection', text: 'Floors, fixtures, and landscaping covered — spotless matters as much as the color.' },
+    { title: 'Application', text: 'Skilled painters, professional-grade equipment, precise lines, and uniform coverage — coat by coat.' },
+    { title: 'Walkthrough & touch-up', text: 'We walk every wall with you in good light and touch up anything that isn\'t right.' },
+  ]}
+  costFactors={[
+    'Interior vs. exterior (exterior prep and coatings run higher)',
+    'Square footage and ceiling height',
+    'Surface condition — repairs and heavy prep add labor',
+    'Product grade: standard vs. premium moisture/UV-resistant coatings',
+    'Color changes (dark-to-light conversions need extra coats)',
+  ]}
+  faqs={[
+    { q: 'How long does exterior paint last in Florida?', a: 'With proper prep and premium coatings, typically 7–10 years — the sun and humidity here punish cheap prep and cheap paint far sooner.' },
+    { q: 'Do you fix drywall and stucco before painting?', a: 'Yes — drywall repair is one of our trades, so cracks, holes, and water stains get properly fixed, not painted over.' },
+    { q: 'How long does an interior repaint take?', a: 'Most rooms take a day; a whole-home interior typically runs 3–5 days depending on prep and colors. Written timeline up front.' },
+    { q: 'What brands do you use?', a: 'Premium lines known for coverage and durability — we\'ll recommend the right product for each surface rather than one-brand-fits-all.' },
+  ]}
+/>

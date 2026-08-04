@@ -1,0 +1,40 @@
+---
+// Copy and photos adapted from the owner's original site (/flooring).
+import RenovationService from '../layouts/RenovationService.astro';
+---
+
+<RenovationService
+  slug="flooring"
+  metaTitle="Flooring Installation | Tile, Wood, Vinyl & Carpet | Punta Gorda, FL | Coastal Property Restorations"
+  metaDescription="Expert flooring installation in Punta Gorda, Port Charlotte, and Fort Myers — tile, hardwood, vinyl, and carpet with smooth surfaces, tight seams, and a professional finish."
+  heroTitle="Expertly Installed Flooring for Every Home"
+  heroText="Every floor sets the foundation for a home's look and feel. We install tile, hardwood, vinyl, and carpet with exacting care — smooth surfaces, tight seams, and a professional finish that elevates any space."
+  gallery={[
+    { src: '/images/flooring/tile.avif', alt: 'Tile flooring installation' },
+    { src: '/images/flooring/wood.avif', alt: 'Hardwood flooring installation' },
+    { src: '/images/flooring/vinyl-carpet.avif', alt: 'Vinyl and carpet flooring' },
+    { src: '/images/flooring/install.avif', alt: 'Flooring installation in progress' },
+    { src: '/images/flooring/precision.avif', alt: 'Precision flooring finish work' },
+    { src: '/images/flooring/lifestyle.avif', alt: 'Finished flooring in a living space' },
+  ]}
+  processSteps={[
+    { title: 'Free consultation', text: 'We look at your space, discuss traffic, moisture, and style, and recommend materials that fit Florida living.' },
+    { title: 'Material selection', text: 'Tile for durability in wet spaces, wood for warmth, vinyl and carpet for comfort and easy upkeep — with samples in hand.' },
+    { title: 'Subfloor preparation', text: 'Careful leveling and prep — the step cheap installers skip, and the reason floors fail early.' },
+    { title: 'Installation', text: 'Precise layout and finish work with methods that reduce waste and minimize disruption to your home.' },
+    { title: 'Final walkthrough', text: 'We walk every room with you — tight seams, smooth transitions, done right.' },
+  ]}
+  costFactors={[
+    'Material: tile, hardwood, luxury vinyl plank, or carpet',
+    'Square footage and room count',
+    'Subfloor condition — leveling or repair adds prep work',
+    'Removal and disposal of existing flooring',
+    'Patterns and transitions (diagonal layouts and inlays take more labor)',
+  ]}
+  faqs={[
+    { q: 'Which flooring holds up best in Florida?', a: 'Tile and luxury vinyl plank handle humidity and sand best, which is why they dominate here. Wood works beautifully in the right rooms with the right product — we\'ll tell you honestly what fits your space.' },
+    { q: 'How long does installation take?', a: 'Most single-room jobs take 1–3 days; whole-home flooring typically runs about a week depending on material and prep. Written timeline before we start.' },
+    { q: 'Do you remove the old flooring?', a: 'Yes — removal, disposal, and subfloor prep are part of the job.' },
+    { q: 'Can you match flooring damaged by water?', a: 'Often yes — and since we also handle water damage restoration, we can dry, repair, and refloor as one job with one crew.' },
+  ]}
+/>

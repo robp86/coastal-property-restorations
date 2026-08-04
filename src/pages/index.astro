@@ -17,13 +17,13 @@ import { reviews } from '../data/reviews';
   <Splash />
   <TrustBar />
 
-  {/* Hero — the house shot from the original site goes behind this (spec §2.2). */}
+  {/* Hero — the house shot fully visible, no dark overlay (owner request: "wow factor"). */}
   <section class="hero">
     <div class="container hero__inner">
       <h1>Storm Damage? Remodeling? We've Got Your Home.</h1>
       <p class="hero__sub">
-        Licensed &amp; insured restoration and remodeling across Southwest Florida —
-        with 24/7 emergency response.
+        Local, licensed &amp; bonded restoration and remodeling across Southwest
+        Florida — with 24/7 emergency response.
       </p>
       <div class="hero__actions">
         <a href={site.phoneHref} class="btn btn--emergency hero__btn">
@@ -33,6 +33,14 @@ import { reviews } from '../data/reviews';
           🛠️ Planning a Project? Free Estimate
         </a>
       </div>
+      <img
+        src="/images/hero-house.avif"
+        alt="Beautiful Southwest Florida home restored by Coastal Property Restorations"
+        class="hero__house"
+        width="1912"
+        height="998"
+        fetchpriority="high"
+      />
     </div>
   </section>
 
@@ -42,8 +50,7 @@ import { reviews } from '../data/reviews';
       <div class="grid grid--4">
         {services.map((s) => (
           <a href={`/${s.slug}`} class="card service-card">
-            {/* TODO: real photo per service (public/images/README.md) */}
-            <div class="img-placeholder" style="min-height: 9rem;">{s.title} photo</div>
+            <img src={s.image} alt={s.title} class="service-card__img" loading="lazy" />
             <div class="service-card__body">
               <h3>{s.title}</h3>
               <p class="muted">{s.short}</p>
@@ -60,9 +67,10 @@ import { reviews } from '../data/reviews';
       <h2>Why Southwest Florida Homeowners Choose Coastal</h2>
       <ul class="why">
         <li><strong>We answer.</strong> Real people, 24/7, when your home can't wait.</li>
-        <li><strong>Insurance-ready documentation.</strong> Photos, scopes, and moisture logs your adjuster can actually use. <a href="/insurance-help">How the insurance process works →</a></li>
+        <li><strong>Licensed, bonded &amp; insured.</strong> Most Florida contractors don't carry a bond — we do. That's real peace of mind for your home and your money.</li>
+        <li><strong>Insurance-ready documentation.</strong> Photos, scopes, and moisture logs your adjuster can actually use. <a href="/insurance-claim">How the insurance claim process works →</a></li>
         <li><strong>One company, start to finish.</strong> Mitigation through rebuild — no handoffs between contractors.</li>
-        <li><strong>Local and licensed.</strong> Based in Punta Gorda, serving our own community.</li>
+        <li><strong>Local.</strong> Based in Punta Gorda, serving our own community.</li>
       </ul>
     </div>
   </section>
@@ -89,28 +97,33 @@ import { reviews } from '../data/reviews';
 
 <style>
   .hero {
-    /* The house shot from the original site, darkened for text contrast */
-    background:
-      linear-gradient(rgba(12, 36, 64, 0.72), rgba(12, 36, 64, 0.82)),
-      url('/images/hero-house.avif') center / cover no-repeat,
-      var(--blue-dark);
-    color: #fff;
+    /* Light gray so the house shot shows uncovered (owner request) */
+    background: linear-gradient(#f0f3f6, #dfe6ec);
+    color: var(--ink);
   }
 
   .hero__inner {
-    padding-block: 3.5rem;
+    padding-block: 2.75rem 0;
     text-align: center;
   }
 
   @media (min-width: 768px) {
-    .hero__inner { padding-block: 6rem; }
+    .hero__inner { padding-block: 4rem 0; }
   }
 
   .hero__sub {
     font-size: 1.15rem;
-    color: #d5e4ec;
+    color: var(--muted);
     max-width: 38rem;
     margin-inline: auto;
+  }
+
+  .hero__house {
+    display: block;
+    width: min(100%, 68rem);
+    margin: 2.25rem auto 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    box-shadow: 0 -12px 40px rgba(12, 36, 64, 0.22);
   }
 
   .hero__actions {
@@ -132,6 +145,12 @@ import { reviews } from '../data/reviews';
     color: inherit;
     display: flex;
     flex-direction: column;
+  }
+
+  .service-card__img {
+    width: 100%;
+    height: 9.5rem;
+    object-fit: cover;
   }
 
   .service-card__body { padding: 1rem 1.1rem 1.25rem; }

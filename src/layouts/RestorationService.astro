@@ -20,6 +20,7 @@ interface Props {
   processSteps: { title: string; text: string }[];
   whySpeed: string;
   faqs: { q: string; a: string }[];
+  heroImage?: string;
 }
 
 const {
@@ -33,13 +34,18 @@ const {
   processSteps,
   whySpeed,
   faqs,
+  heroImage,
 } = Astro.props;
+
+const heroStyle = heroImage
+  ? `background: linear-gradient(rgba(12, 36, 64, 0.78), rgba(12, 36, 64, 0.78)), url('${heroImage}') center / cover no-repeat, var(--blue-dark);`
+  : undefined;
 ---
 
 <Base title={metaTitle} description={metaDescription}>
   <TrustBar />
 
-  <section class="hero section">
+  <section class="hero section" style={heroStyle}>
     <div class="container">
       <h1>{heroTitle}</h1>
       <p class="hero__text">{heroText}</p>
@@ -85,7 +91,7 @@ const {
         scopes of work, and we communicate directly with your insurance company's
         authorized representatives. We don't negotiate claims — that's your adjuster's
         role — but our documentation makes the process smoother.
-        <a href="/insurance-help">Learn how the insurance process works →</a>
+        <a href="/insurance-claim">Learn how the insurance claim process works →</a>
       </p>
     </div>
   </section>

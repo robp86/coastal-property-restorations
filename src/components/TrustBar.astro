@@ -1,17 +1,19 @@
 ---
 // One row of real numbers only (spec §2.3). TODOs resolve from owner Q&A.
+// Red appears here and nowhere else on the site: a single live-status dot on the
+// 24/7 item (owner: "red only in small amounts").
 import { site } from '../data/site';
 
 const items = [
   `⭐ ${site.googleRating} Google Rating`, // TODO: real rating + count
-  '🛡️ Licensed & Insured',
-  '🕑 24/7 Emergency Response',
-  `📍 Serving Southwest Florida`,
+  '🛡️ Licensed, Bonded & Insured',
+  '📍 Local — Punta Gorda Based',
 ];
 ---
 
 <div class="trustbar">
   <div class="container trustbar__inner">
+    <span class="trustbar__live"><span class="trustbar__dot" aria-hidden="true"></span>24/7 Emergency Response</span>
     {items.map((item) => <span>{item}</span>)}
   </div>
 </div>
@@ -31,5 +33,29 @@ const items = [
     gap: 0.4rem 1.75rem;
     justify-content: center;
     padding-block: 0.6rem;
+  }
+
+  .trustbar__live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .trustbar__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.6);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 0.5rem rgba(192, 57, 43, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trustbar__dot { animation: none; }
   }
 </style>

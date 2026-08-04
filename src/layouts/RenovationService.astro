@@ -18,6 +18,8 @@ interface Props {
   processSteps: { title: string; text: string }[];
   costFactors: string[];
   faqs: { q: string; a: string }[];
+  /* Real photos for the gallery; placeholders shown until provided */
+  gallery?: { src: string; alt: string }[];
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   processSteps,
   costFactors,
   faqs,
+  gallery,
 } = Astro.props;
 ---
 
@@ -50,13 +53,21 @@ const {
     <div class="container">
       <h2>Our Work</h2>
       <div class="grid grid--3">
-        {/* TODO: 6–12 real finished-project photos (spec §3) */}
-        <div class="img-placeholder">Real project photo</div>
-        <div class="img-placeholder">Real project photo</div>
-        <div class="img-placeholder">Real project photo</div>
-        <div class="img-placeholder">Real project photo</div>
-        <div class="img-placeholder">Real project photo</div>
-        <div class="img-placeholder">Real project photo</div>
+        {gallery ? (
+          gallery.map((g) => (
+            <img src={g.src} alt={g.alt} class="gallery-img" loading="lazy" />
+          ))
+        ) : (
+          <>
+            {/* TODO: 6–12 real finished-project photos (spec §3) */}
+            <div class="img-placeholder">Real project photo</div>
+            <div class="img-placeholder">Real project photo</div>
+            <div class="img-placeholder">Real project photo</div>
+            <div class="img-placeholder">Real project photo</div>
+            <div class="img-placeholder">Real project photo</div>
+            <div class="img-placeholder">Real project photo</div>
+          </>
+        )}
       </div>
     </div>
   </section>
@@ -99,6 +110,13 @@ const {
       var(--blue-dark);
     /* TODO: layer best finished-project photo behind the gradient */
     color: #fff;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: var(--radius);
   }
 
   .hero__text {

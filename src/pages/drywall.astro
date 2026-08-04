@@ -1,0 +1,40 @@
+---
+// Copy and photos adapted from the owner's original site (/drywall).
+import RenovationService from '../layouts/RenovationService.astro';
+---
+
+<RenovationService
+  slug="drywall"
+  metaTitle="Drywall Installation, Repair & Finishing | Punta Gorda, FL | Coastal Property Restorations"
+  metaDescription="Expert drywall installation, repair, and finishing in Punta Gorda, Port Charlotte, and Fort Myers — from small patches to complete rebuilds, flawless surfaces ready for paint."
+  heroTitle="Expert Drywall Installation and Finishing"
+  heroText="Smooth walls are the backdrop of every well-finished space. From small patches to complete rebuilds, our crews create flawless surfaces ready for paint or texture."
+  gallery={[
+    { src: '/images/drywall/install-1.avif', alt: 'Drywall installation' },
+    { src: '/images/drywall/install-2.avif', alt: 'Drywall panels installed and aligned' },
+    { src: '/images/drywall/repairs.avif', alt: 'Drywall repair work' },
+    { src: '/images/drywall/finishing.avif', alt: 'Drywall taping and finishing' },
+    { src: '/images/drywall/results.avif', alt: 'Finished smooth drywall surface' },
+    { src: '/images/drywall/foundations.avif', alt: 'Completed drywall ready for paint' },
+  ]}
+  processSteps={[
+    { title: 'Assessment', text: 'Patch, repair, or full replacement — we tell you which one the job actually needs.' },
+    { title: 'Installation', text: 'Measured and aligned panels for flat, even surfaces throughout the property.' },
+    { title: 'Repairs', text: 'Cracks, holes, and water damage fixed with matching texture and clean blending — you won\'t find the seam.' },
+    { title: 'Finishing', text: 'Professional taping and sanding deliver perfectly smooth, paint-ready results.' },
+    { title: 'Cleanup', text: 'Drywall dust is legendary — our containment and cleanup mean your home doesn\'t wear it for weeks.' },
+  ]}
+  costFactors={[
+    'Scope: small patch vs. room vs. whole-home replacement',
+    'Ceiling work (higher labor than walls)',
+    'Texture matching on repairs',
+    'Water-damaged drywall may need moisture verification before closing up walls',
+    'Finish level — garage-smooth vs. living-room-perfect',
+  ]}
+  faqs={[
+    { q: 'Can you match my existing wall texture?', a: 'Yes — texture matching and clean blending are the difference between a repair you can spot and one you can\'t.' },
+    { q: 'My drywall got wet — can it be saved?', a: 'Depends how wet and for how long. We measure moisture rather than guess; since we also do water damage restoration, we can verify walls are dry before sealing them up.' },
+    { q: 'How fast can a small repair get done?', a: 'Small patches are typically same-day; the finish coats and drying determine the total timeline. We\'ll tell you exactly when it\'s paint-ready.' },
+    { q: 'Do you paint after the drywall work?', a: 'Yes — drywall and painting are both our trades, so one crew can take a repair from patch to finished color.' },
+  ]}
+/>
