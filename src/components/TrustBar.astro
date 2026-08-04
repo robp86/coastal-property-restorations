@@ -4,6 +4,13 @@
 // 24/7 item (owner: "red only in small amounts").
 import { site } from '../data/site';
 
+interface Props {
+  /* Homepage sets this false — its hero carries the 24/7 badge already */
+  showLive?: boolean;
+}
+
+const { showLive = true } = Astro.props;
+
 const items = [
   `⭐ ${site.googleRating} Google Rating`, // TODO: real rating + count
   '🛡️ Licensed, Bonded & Insured',
@@ -13,7 +20,9 @@ const items = [
 
 <div class="trustbar">
   <div class="container trustbar__inner">
-    <span class="trustbar__live"><span class="trustbar__dot" aria-hidden="true"></span>24/7 Emergency Response</span>
+    {showLive && (
+      <span class="trustbar__live"><span class="trustbar__dot" aria-hidden="true"></span>24/7 Emergency Response</span>
+    )}
     {items.map((item) => <span>{item}</span>)}
   </div>
 </div>
