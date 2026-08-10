@@ -1,13 +1,14 @@
 ---
-// LEGAL LINE (spec §6). This page positions Coastal as the homeowner's resource:
-// documenting the loss and working the repair scope with the adjuster. That is all
-// standard contractor work.
+// TONE (owner direction): calm and reassuring, never adversarial. The point is that
+// the whole process is stressful and Coastal carries it — from the insurance claim
+// through the final coat of paint. Do not spell out the insurer-vs-homeowner
+// imbalance; that's the reason the page works, not something to say out loud.
 //
-// What must NOT appear here, no matter how the copy is reworded later: any claim
-// that Coastal negotiates, adjusts, settles, or handles the claim itself. Under
-// Fla. Stat. 489.147 a contractor may not negotiate a claim on an insured's behalf,
-// and advertising it is unlicensed public adjusting (Fla. Stat. 626.854) — a
-// licensing and criminal exposure, not a style preference.
+// LEGAL LINE (spec §6): describing documentation, scope of work, and walking the
+// property with the adjuster is standard contractor work. Never state or imply that
+// Coastal negotiates, adjusts, or settles the claim itself — under Fla. Stat.
+// 489.147 a contractor may not negotiate a claim, and advertising it is unlicensed
+// public adjusting (Fla. Stat. 626.854).
 import Base from '../layouts/Base.astro';
 import TrustBar from '../components/TrustBar.astro';
 import FAQ from '../components/FAQ.astro';
@@ -16,68 +17,59 @@ import { site } from '../data/site';
 ---
 
 <Base
-  title="Insurance Claim Help | Storm & Water Damage Claims | Coastal Property Restorations"
-  description="Insurance companies have adjusters, engineers, and attorneys. Most homeowners have none of that. Coastal documents your damage and works the repair scope with the adjuster across Southwest Florida."
+  title="Insurance Claim Help | Storm & Water Damage Restoration | Coastal Property Restorations"
+  description="From the insurance claim to the final coat of paint, Coastal Property Restorations handles the whole process — documentation, scope, and rebuild — for Southwest Florida homeowners."
 >
   <TrustBar />
 
   <section class="section">
     <div class="container" style="max-width: 46rem;">
-      <h1>You Shouldn't Have to Do This Alone</h1>
+      <h1>From the Insurance Claim to the Final Coat of Paint</h1>
       <p>
-        When you file a property damage claim, the insurance company brings a team.
-        Staff adjusters who handle hundreds of losses a year. Engineers. Attorneys.
-        People who do this every single day and know exactly what a claim file
-        should look like.
+        When your home is damaged, the repairs are only part of what lands on you.
+        There's the documentation. The adjuster's visit. Working out the scope of
+        the work. Scheduling trades. Keeping track of all of it — while you're also
+        trying to get your family back to normal.
       </p>
       <p>
-        You're doing it for the first time, from a house that just got wrecked,
-        while trying to keep your family somewhere dry. That's not a fair fight —
-        and homeowners who don't have the resources or the know-how are the ones who
-        end up shortchanged.
-      </p>
-      <p>
-        <strong>That's where we come in.</strong> We've walked Southwest Florida
-        homeowners through this more times than we can count. You get someone on
-        your side of the table who speaks the language, knows what the damage
-        actually takes to repair, and won't let anything get overlooked.
+        It's a lot to carry, and most people are carrying it for the first time.
+        <strong>You don't have to.</strong> One call and we take it from there.
       </p>
 
-      <h2>What we bring to your side</h2>
+      <h2>What we take off your plate</h2>
       <ul>
-        <li><strong>Complete documentation.</strong> Photos of every affected area, moisture readings logged daily, and a detailed written scope — the file your loss deserves.</li>
-        <li><strong>We know what repairs really require.</strong> Florida building code, hidden damage, what has to come out versus what can be saved. We put it in writing.</li>
-        <li><strong>We deal with the adjuster on the scope.</strong> When it's time to go through what your home needs, we're the ones walking it with them — not you.</li>
-        <li><strong>One company start to finish.</strong> The same people who documented the damage do the repairs, so nothing gets lost in a handoff.</li>
+        <li><strong>The documentation.</strong> Photos of every affected area, moisture readings logged daily, and a written record that starts the hour we arrive.</li>
+        <li><strong>The scope of work.</strong> A detailed, line-by-line account of what your home actually needs to be put back — nothing overlooked, nothing padded.</li>
+        <li><strong>The adjuster's walkthrough.</strong> We're there with the documentation and we go through the repairs with them, so it isn't on you to explain moisture readings or roof decking.</li>
+        <li><strong>The rebuild.</strong> The same company that dried it out and documented it does the repairs. No handoffs, no finger-pointing, one point of contact.</li>
       </ul>
 
-      <h2>What the process looks like</h2>
+      <h2>How it goes</h2>
       <ol class="steps">
-        <li><strong>Call us first.</strong> Before anything else. We'll tell you what to do right now, and get a crew moving.</li>
-        <li><strong>We stop the damage and document it.</strong> Tarping, water extraction, dry-out — photographed and recorded from the first hour.</li>
-        <li><strong>We build the file.</strong> Full photo record, moisture logs, and a line-by-line scope of what it takes to put your home back.</li>
-        <li><strong>The inspection.</strong> When the adjuster walks the property, we're there with the documentation and we go through the scope with them.</li>
-        <li><strong>We rebuild.</strong> Repairs to the agreed scope, then a final walkthrough with you and your complete documentation package.</li>
+        <li><strong>Call us first.</strong> We'll tell you what to do right now and get a crew moving.</li>
+        <li><strong>We stop the damage.</strong> Tarping, water extraction, dry-out — documented from the first hour.</li>
+        <li><strong>We put the file together.</strong> Full photo record, moisture logs, and the detailed scope of repairs.</li>
+        <li><strong>The inspection.</strong> We meet the adjuster at your property and walk the damage with them.</li>
+        <li><strong>We rebuild.</strong> Repairs, then a final walkthrough with you and your complete documentation package.</li>
       </ol>
 
       <p style="margin-top: 2rem;">
-        <strong>The most important thing you can do is call early.</strong> The
-        documentation that protects you starts the moment we walk in — and the
-        sooner that is, the more complete your record.
-        <a href={site.phoneHref}>Call {site.phone}</a>.
+        The single most useful thing you can do is call early — the record that
+        protects you starts the moment we walk in.
+        <a href={site.phoneHref}>Call {site.phone}</a> and we'll take it from there.
       </p>
     </div>
   </section>
 
   <FAQ
     items={[
-      { q: 'Should I call a contractor or the insurance company first?', a: 'Call us first. We can start protecting the property immediately and get the damage documented properly from the first hour — that record is what everything else is built on. We will walk you through what comes next so nothing catches you off guard.' },
-      { q: 'Do I have to handle the adjuster myself?', a: 'No. When the adjuster walks your property, we are there with the full documentation and we go through the repair scope with them. You should not have to argue about roof decking or moisture readings with someone who does this for a living.' },
-      { q: 'What documentation do you provide?', a: 'Photos of every affected area from the first hour forward, daily moisture readings during dry-out, and a detailed line-by-line scope of the repairs. It goes to you as a complete package at the end of the job.' },
-      { q: 'Will my rates go up if I file?', a: 'Nobody can honestly promise you either way — that comes down to your insurer and your history. What we can tell you plainly is what the damage actually takes to repair and what that should cost. Call us and we will give you the straight version before you decide anything.' },
-      { q: 'What is a deductible?', a: 'The portion of the loss you pay before your coverage picks up the rest. In Florida, hurricane deductibles are often a percentage of your home\'s insured value rather than a flat dollar amount, which catches a lot of people off guard. If you are not sure how yours works, call us and we will help you make sense of it.' },
+      { q: 'Who should I call first?', a: 'Call us. We can start protecting the property right away and get everything documented properly from the first hour — that record is what the rest of the process is built on. We will walk you through what comes next so nothing catches you off guard.' },
+      { q: 'Do I have to deal with the adjuster myself?', a: 'No. We meet the adjuster at your property with the full documentation and go through the repairs with them. You are welcome to be there, but you will not be the one explaining what the damage takes to fix.' },
+      { q: 'What documentation do you provide?', a: 'Photos of every affected area from the first hour forward, daily moisture readings during dry-out, and a detailed line-by-line scope of the repairs. You get the complete package at the end of the job.' },
+      { q: 'How long does the whole process take?', a: 'Dry-out is typically 3–5 days, and the rebuild depends on the extent of the damage. We give you a written timeline once the scope is set, and we keep you updated as it moves — no wondering where things stand.' },
+      { q: 'What is a deductible?', a: 'The portion of the loss you pay before your coverage picks up the rest. In Florida, hurricane deductibles are often a percentage of your home\'s insured value rather than a flat dollar amount, which surprises a lot of people. If you are not sure how yours works, give us a call and we will help you make sense of it.' },
     ]}
   />
 
-  <CTABand heading="Talk to us before you talk to anyone else." />
+  <CTABand heading="One call. We'll take it from here." />
 </Base>

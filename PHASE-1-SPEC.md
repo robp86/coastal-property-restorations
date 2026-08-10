@@ -116,7 +116,9 @@ Collect during the Q&A conversation; the build can't finish without it.
 | Baseline snapshot | Record current calls/leads per month before launch | Otherwise "did it work?" is unanswerable |
 | Monthly report | Calls, form leads, top pages, top queries — one page | The Phase 2 go/no-go evidence |
 
-**Legal line for the Insurance Claim page** (`/insurance-claim`) **and every insurance mention site-wide.** Owner's direction is to position Coastal as the homeowner's resource against a well-resourced insurer, and to stop sending visitors to their insurance company. That's fine — but there is a hard statutory boundary:
+**Tone for all insurance copy (owner direction).** The message is: *this whole process is stressful, and Coastal handles it — from the insurance claim to the final coat of paint.* Calm and reassuring, never adversarial. The insurer-versus-homeowner imbalance is the **reason** this positioning works; it is deliberately **not** stated on the site. No "they have attorneys," no "not a fair fight," no combative language. Visitors should feel the relief and call, without being told what they're being protected from. Copy also leads every path to Coastal rather than sending visitors to their insurer or agent.
+
+**Legal line for the Insurance Claim page** (`/insurance-claim`) **and every insurance mention site-wide:**
 
 *Allowed (standard contractor work, and what the copy does now):* documenting damage in full; writing detailed repair scopes; meeting the adjuster on site and going through what the repairs require; explaining the process; "you shouldn't have to do this alone."
 
