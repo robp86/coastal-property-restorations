@@ -1,62 +1,83 @@
 ---
-// LEGAL GUARDRAIL (spec §6): education only. This page explains the process and
-// what Coastal documents. It must NOT advise on coverage, predict claim outcomes,
-// or use claim-negotiation language — Florida reserves claim negotiation for
-// licensed public adjusters. Keep every future edit inside that line.
+// LEGAL LINE (spec §6). This page positions Coastal as the homeowner's resource:
+// documenting the loss and working the repair scope with the adjuster. That is all
+// standard contractor work.
+//
+// What must NOT appear here, no matter how the copy is reworded later: any claim
+// that Coastal negotiates, adjusts, settles, or handles the claim itself. Under
+// Fla. Stat. 489.147 a contractor may not negotiate a claim on an insured's behalf,
+// and advertising it is unlicensed public adjusting (Fla. Stat. 626.854) — a
+// licensing and criminal exposure, not a style preference.
 import Base from '../layouts/Base.astro';
 import TrustBar from '../components/TrustBar.astro';
 import FAQ from '../components/FAQ.astro';
 import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
 ---
 
 <Base
-  title="Insurance Claim Help | How the Claim Process Works | Coastal Property Restorations"
-  description="How the property insurance claim process works after storm or water damage in Florida — and how Coastal documents your restoration from start to finish."
+  title="Insurance Claim Help | Storm & Water Damage Claims | Coastal Property Restorations"
+  description="Insurance companies have adjusters, engineers, and attorneys. Most homeowners have none of that. Coastal documents your damage and works the repair scope with the adjuster across Southwest Florida."
 >
   <TrustBar />
 
   <section class="section">
     <div class="container" style="max-width: 46rem;">
-      <h1>How the Insurance Claim Process Works</h1>
+      <h1>You Shouldn't Have to Do This Alone</h1>
       <p>
-        Filing a property damage claim is stressful, especially when your home is
-        actively damaged. Here's what the process actually looks like — and what we
-        do at each step.
+        When you file a property damage claim, the insurance company brings a team.
+        Staff adjusters who handle hundreds of losses a year. Engineers. Attorneys.
+        People who do this every single day and know exactly what a claim file
+        should look like.
+      </p>
+      <p>
+        You're doing it for the first time, from a house that just got wrecked,
+        while trying to keep your family somewhere dry. That's not a fair fight —
+        and homeowners who don't have the resources or the know-how are the ones who
+        end up shortchanged.
+      </p>
+      <p>
+        <strong>That's where we come in.</strong> We've walked Southwest Florida
+        homeowners through this more times than we can count. You get someone on
+        your side of the table who speaks the language, knows what the damage
+        actually takes to repair, and won't let anything get overlooked.
       </p>
 
-      <h2>The typical claim timeline</h2>
+      <h2>What we bring to your side</h2>
+      <ul>
+        <li><strong>Complete documentation.</strong> Photos of every affected area, moisture readings logged daily, and a detailed written scope — the file your loss deserves.</li>
+        <li><strong>We know what repairs really require.</strong> Florida building code, hidden damage, what has to come out versus what can be saved. We put it in writing.</li>
+        <li><strong>We deal with the adjuster on the scope.</strong> When it's time to go through what your home needs, we're the ones walking it with them — not you.</li>
+        <li><strong>One company start to finish.</strong> The same people who documented the damage do the repairs, so nothing gets lost in a handoff.</li>
+      </ul>
+
+      <h2>What the process looks like</h2>
       <ol class="steps">
-        <li><strong>Damage happens.</strong> Take photos and video if it's safe. Prevent further damage where you reasonably can — insurers expect this.</li>
-        <li><strong>Report the claim to your insurer.</strong> Your policy number and photos get it started. Your insurer assigns an adjuster.</li>
-        <li><strong>Emergency mitigation.</strong> We stop the damage from spreading — tarping, water extraction, dry-out — and document every step with photos and readings.</li>
-        <li><strong>Adjuster inspection.</strong> Your insurer's adjuster inspects and determines coverage. Our documentation package gives them a complete, accurate picture.</li>
-        <li><strong>Scope &amp; repair.</strong> Once the claim is settled between you and your insurer, we complete the repairs to the approved scope.</li>
+        <li><strong>Call us first.</strong> Before anything else. We'll tell you what to do right now, and get a crew moving.</li>
+        <li><strong>We stop the damage and document it.</strong> Tarping, water extraction, dry-out — photographed and recorded from the first hour.</li>
+        <li><strong>We build the file.</strong> Full photo record, moisture logs, and a line-by-line scope of what it takes to put your home back.</li>
+        <li><strong>The inspection.</strong> When the adjuster walks the property, we're there with the documentation and we go through the scope with them.</li>
+        <li><strong>We rebuild.</strong> Repairs to the agreed scope, then a final walkthrough with you and your complete documentation package.</li>
       </ol>
 
-      <h2>What Coastal does — and doesn't do</h2>
-      <p>
-        <strong>We do:</strong> document all damage with photos, moisture readings,
-        and detailed written scopes; perform emergency mitigation and repairs; and
-        communicate with your insurance company's authorized representatives about
-        the work.
-      </p>
-      <p>
-        <strong>We don't:</strong> negotiate your claim or interpret your policy.
-        In Florida, claim negotiation is legally the role of you, your insurer, or a
-        licensed public adjuster. What we provide is the thorough documentation that
-        makes that process work.
+      <p style="margin-top: 2rem;">
+        <strong>The most important thing you can do is call early.</strong> The
+        documentation that protects you starts the moment we walk in — and the
+        sooner that is, the more complete your record.
+        <a href={site.phoneHref}>Call {site.phone}</a>.
       </p>
     </div>
   </section>
 
   <FAQ
     items={[
-      { q: 'Should I call insurance or a contractor first?', a: 'If damage is actively spreading — water coming in, roof open — call a contractor first to stop it; insurers expect reasonable steps to prevent further damage. Report the claim as soon as the emergency is controlled. When in doubt, do both within the hour.' },
-      { q: 'Will my rates go up if I file a claim?', a: 'That depends on your insurer, policy, and claims history — we can\'t predict it. Your agent is the right person to ask.' },
-      { q: 'What documentation will my adjuster want?', a: 'Photos of the damage as it happened, evidence of the cause, and records of mitigation work. Our standard documentation package covers all three.' },
-      { q: 'What\'s a deductible?', a: 'The portion of the loss you pay before insurance pays the rest — set by your policy. Note that Florida hurricane deductibles are often a percentage of your home\'s insured value rather than a flat amount; check your policy\'s declarations page.' },
+      { q: 'Should I call a contractor or the insurance company first?', a: 'Call us first. We can start protecting the property immediately and get the damage documented properly from the first hour — that record is what everything else is built on. We will walk you through what comes next so nothing catches you off guard.' },
+      { q: 'Do I have to handle the adjuster myself?', a: 'No. When the adjuster walks your property, we are there with the full documentation and we go through the repair scope with them. You should not have to argue about roof decking or moisture readings with someone who does this for a living.' },
+      { q: 'What documentation do you provide?', a: 'Photos of every affected area from the first hour forward, daily moisture readings during dry-out, and a detailed line-by-line scope of the repairs. It goes to you as a complete package at the end of the job.' },
+      { q: 'Will my rates go up if I file?', a: 'Nobody can honestly promise you either way — that comes down to your insurer and your history. What we can tell you plainly is what the damage actually takes to repair and what that should cost. Call us and we will give you the straight version before you decide anything.' },
+      { q: 'What is a deductible?', a: 'The portion of the loss you pay before your coverage picks up the rest. In Florida, hurricane deductibles are often a percentage of your home\'s insured value rather than a flat dollar amount, which catches a lot of people off guard. If you are not sure how yours works, call us and we will help you make sense of it.' },
     ]}
   />
 
-  <CTABand heading="Damage to document? We're ready." />
+  <CTABand heading="Talk to us before you talk to anyone else." />
 </Base>

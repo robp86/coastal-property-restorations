@@ -116,7 +116,13 @@ Collect during the Q&A conversation; the build can't finish without it.
 | Baseline snapshot | Record current calls/leads per month before launch | Otherwise "did it work?" is unanswerable |
 | Monthly report | Calls, form leads, top pages, top queries — one page | The Phase 2 go/no-go evidence |
 
-**Legal note for the Insurance Help page:** education only — the claims process, what documentation Coastal provides, what to expect. No coverage predictions, no "what to tell your adjuster," no claim negotiation language. Florida law reserves claim negotiation for licensed public adjusters; the page should say plainly that Coastal documents and communicates but doesn't negotiate claims.
+**Legal line for the Insurance Claim page** (`/insurance-claim`) **and every insurance mention site-wide.** Owner's direction is to position Coastal as the homeowner's resource against a well-resourced insurer, and to stop sending visitors to their insurance company. That's fine — but there is a hard statutory boundary:
+
+*Allowed (standard contractor work, and what the copy does now):* documenting damage in full; writing detailed repair scopes; meeting the adjuster on site and going through what the repairs require; explaining the process; "you shouldn't have to do this alone."
+
+*Prohibited, regardless of how it's phrased:* stating or implying that Coastal negotiates, adjusts, settles, or handles the claim itself. Under Fla. Stat. 489.147 a contractor may not negotiate a claim on an insured's behalf, and advertising that service is unlicensed public adjusting (Fla. Stat. 626.854) — exposure to license revocation and criminal liability, not a stylistic choice. Also avoid predicting coverage outcomes or interpreting a specific policy.
+
+The distinction that keeps both sides happy: Coastal advocates for the **scope of repairs** (its own trade), not the **claim settlement** (the adjuster's). If the owner wants true claim negotiation offered, the lawful route is hiring or partnering with a licensed public adjuster — worth a conversation with his attorney.
 
 ---
 
