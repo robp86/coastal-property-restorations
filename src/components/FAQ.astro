@@ -5,7 +5,21 @@ interface Props {
 }
 
 const { items, heading = 'Frequently Asked Questions' } = Astro.props;
+
+// FAQPage schema — these answer real customer questions, so they're strong
+// candidates for rich results (spec Phase 3 rationale, pulled forward).
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <section class="section">
   <div class="container faq">

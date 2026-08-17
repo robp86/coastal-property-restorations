@@ -1,0 +1,161 @@
+---
+// Aging-in-place / accessible bathroom page. Charlotte and Lee County have among
+// the oldest median populations in the country, and Sean already has the proof
+// photos, so this is a high-intent, low-competition page.
+//
+// TONE: dignity, not decline. Homeowners buying this are usually planning ahead or
+// helping a parent — the copy sells independence and looks, never frailty.
+import Base from '../layouts/Base.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ReviewsStrip from '../components/ReviewsStrip.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
+import { reviewsFor } from '../data/reviews';
+---
+
+<Base
+  title="Accessible & Walk-In Showers | Aging in Place Bathroom Remodeling | Punta Gorda, FL"
+  description="Walk-in and curbless showers, grab bars, and bench seating for Southwest Florida homeowners. Accessible bathroom remodeling in Punta Gorda, Port Charlotte, and Fort Myers that looks like a spa, not a hospital."
+  ogImage="/images/projects/accessible-shower-blue.avif"
+  breadcrumb="Accessible Bathrooms"
+  service={{
+    name: 'Accessible Bathroom Remodeling',
+    description:
+      'Walk-in and curbless shower conversions, grab bar installation, bench seating, comfort-height fixtures, and wider clearances for aging-in-place and accessible bathrooms.',
+  }}
+>
+  <TrustBar />
+
+  <section class="hero section">
+    <div class="container">
+      <h1>Stay in the Home You Love</h1>
+      <p class="hero__text">
+        A bathroom shouldn't be the reason someone has to move. Walk-in showers,
+        solid grab bars, and bench seating — built so they look like a spa, not a
+        hospital room.
+      </p>
+      <div class="hero__actions">
+        <a href="/contact" class="btn btn--primary">Get a Free Consultation</a>
+        <a href={site.phoneHref} class="btn btn--outline">📞 {site.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Our Work</h2>
+      <div class="grid grid--3">
+        <img src="/images/projects/accessible-shower-blue.avif" alt="Curbless walk-in shower with teak bench seating, grab bars, and handheld shower on a slide bar" class="gallery-img" loading="lazy" />
+        <img src="/images/projects/accessible-bath-cabinets.avif" alt="Accessible bathroom with grab bars beside the toilet and full-height custom cabinetry" class="gallery-img" loading="lazy" />
+        <img src="/images/projects/hex-tile-shower.avif" alt="Low-threshold tile shower with handheld sprayer and built-in niche" class="gallery-img" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container" style="max-width: 46rem;">
+      <h2>What Makes a Bathroom Accessible</h2>
+      <p>
+        Most of it is invisible once it's finished. Done right, an accessible
+        bathroom just looks like a well-designed bathroom.
+      </p>
+      <ul>
+        <li><strong>Curbless and low-threshold showers.</strong> No lip to step over — the single biggest fall risk in most bathrooms — with the floor sloped correctly so water still goes where it should.</li>
+        <li><strong>Grab bars that are actually anchored.</strong> Blocking goes in behind the wall so bars carry real weight. A bar screwed into drywall is worse than no bar at all.</li>
+        <li><strong>Bench seating.</strong> Built-in or teak fold-down, positioned within reach of the controls.</li>
+        <li><strong>Handheld shower on a slide bar.</strong> Usable seated or standing, at whatever height works.</li>
+        <li><strong>Comfort-height fixtures and wider clearances.</strong> Easier to use, and room for a walker or chair if it's ever needed.</li>
+        <li><strong>Slip-resistant flooring.</strong> Smaller tile and more grout lines mean more grip underfoot.</li>
+      </ul>
+
+      <h2 style="margin-top: 2rem;">Planning Ahead vs. Needing It Now</h2>
+      <p>
+        Both are normal, and they run differently. If you're planning ahead — a
+        forever home, or a parent moving in — we design the whole bathroom around
+        it and take the usual remodel timeline.
+      </p>
+      <p>
+        If something's changed suddenly and a bathroom needs to be usable
+        <em>now</em>, tell us that on the phone. We'll sequence the work so the
+        essentials are safe first and the finish work follows.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li>
+          <strong>Free in-home consultation</strong>
+          <p style="margin: 0.25rem 0 0;">We look at the actual space and talk through who's using it and what's hard about it today.</p>
+        </li>
+        <li>
+          <strong>Design and materials</strong>
+          <p style="margin: 0.25rem 0 0;">Layout, tile, fixtures, and bar placement — chosen with you, with samples in hand.</p>
+        </li>
+        <li>
+          <strong>Written proposal</strong>
+          <p style="margin: 0.25rem 0 0;">Line-item scope, timeline, and payment schedule before anything starts.</p>
+        </li>
+        <li>
+          <strong>Build</strong>
+          <p style="margin: 0.25rem 0 0;">Licensed crews, permits pulled, waterproofing done properly — the part that fails first in Florida when it's rushed.</p>
+        </li>
+        <li>
+          <strong>Walkthrough</strong>
+          <p style="margin: 0.25rem 0 0;">We go through it together and make sure everything is where it needs to be for the person using it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <ReviewsStrip items={reviewsFor('bathroom-remodeling')} />
+
+  <FAQ
+    items={[
+      { q: 'Can you convert an existing tub into a walk-in shower?', a: 'Yes — tub-to-shower conversion is one of the most common jobs we do. Most standard tub alcoves convert to a walk-in or curbless shower without moving walls, which keeps the cost and timeline down.' },
+      { q: 'Will it look like a hospital bathroom?', a: 'Not unless you want it to. Modern grab bars come in the same finishes as your towel bars and faucets, benches can be teak or tiled, and curbless showers read as high-end rather than medical. Most people notice the look before they notice the safety.' },
+      { q: 'How long does an accessible bathroom remodel take?', a: 'Typically 2–4 weeks depending on scope, and we give you a written timeline before starting. If someone needs the bathroom usable sooner, tell us — we can often sequence the work so the essentials come first.' },
+      { q: 'Does insurance or Medicare pay for this?', a: 'Standard Medicare generally does not cover home modifications, though some Medicare Advantage plans, VA benefits, and Florida assistance programs do help in certain situations. We are not benefits advisors — check with your plan — but we can provide the detailed written scope and documentation those programs ask for.' },
+      { q: 'Do grab bars need special framing?', a: 'Yes, and this is where cheap installs fail. Bars need solid blocking behind the wall to carry real weight. We install blocking as part of the job, and we can add it in other spots while the wall is open in case it is needed later.' },
+      { q: 'Can you make the rest of the home more accessible too?', a: 'Often, yes — wider doorways, threshold transitions between flooring types, and step-free entries are all things we handle. Mention it at the consultation and we will look at the whole path through the house, not just the bathroom.' },
+    ]}
+  />
+
+  <CTABand heading="Let's talk about what your bathroom needs." emergency={false} />
+</Base>
+
+<style>
+  .hero {
+    background: linear-gradient(rgba(12, 36, 64, 0.8), rgba(12, 36, 64, 0.8)),
+      url('/images/projects/accessible-shower-blue.avif') center / cover no-repeat,
+      var(--blue-dark);
+    color: #fff;
+  }
+
+  .hero__text {
+    font-size: 1.15rem;
+    max-width: 42rem;
+    color: #d5e4ec;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 24rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__actions { flex-direction: row; max-width: none; }
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+</style>

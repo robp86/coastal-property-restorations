@@ -8,18 +8,38 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  /* Social share image. Falls back to the hero house shot. */
+  ogImage?: string;
+  /* Adds a BreadcrumbList (Home > label) — pass the page's short label. */
+  breadcrumb?: string;
+  /* Emits Service schema on service pages. */
+  service?: { name: string; description: string };
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = '/images/hero-house.avif',
+  breadcrumb,
+  service,
+} = Astro.props;
 
-// LocalBusiness schema on every page (spec §4).
-const schema = {
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImageUrl = new URL(ogImage, site.url).href;
+
+// LocalBusiness on every page (spec §4).
+const business = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
+  '@id': `${site.url}/#business`,
   name: site.name,
   url: site.url,
   telephone: site.phone,
   email: site.email,
+  image: new URL('/images/hero-house.avif', site.url).href,
+  logo: new URL('/images/logo.avif', site.url).href,
+  description: site.description,
+  priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address.street,
@@ -28,8 +48,48 @@ const schema = {
     postalCode: site.address.zip,
     addressCountry: 'US',
   },
-  areaServed: ['Punta Gorda FL', 'Port Charlotte FL', 'Fort Myers FL'],
-  openingHours: 'Mo-Su 00:00-24:00', // TODO: confirm 24/7 (spec Q3)
+  geo: {
+    '@type': 'GeoCoordinates',
+    // Punta Gorda, FL — office location
+    latitude: 26.9298,
+    longitude: -82.0454,
+  },
+  areaServed: [
+    'Punta Gorda, FL',
+    'Port Charlotte, FL',
+    'Fort Myers, FL',
+    'Charlotte County, FL',
+    'Lee County, FL',
+  ],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+};
+
+const serviceSchema = service && {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.name,
+  description: service.description,
+  serviceType: service.name,
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: [
+    { '@type': 'City', name: 'Punta Gorda' },
+    { '@type': 'City', name: 'Port Charlotte' },
+    { '@type': 'City', name: 'Fort Myers' },
+  ],
+};
+
+const breadcrumbSchema = breadcrumb && {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+    { '@type': 'ListItem', position: 2, name: breadcrumb, item: canonical },
+  ],
 };
 ---
 
@@ -39,9 +99,30 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, site.url).href} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <meta name="theme-color" content="#0c2440" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    {serviceSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    )}
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
     {/* TODO(launch-blocker): GA4 snippet + tel-click / form-submit events (spec §6) */}
     {/* TODO(launch-blocker): CallRail dynamic number insertion script (spec §6) */}
   </head>

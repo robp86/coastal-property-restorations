@@ -20,7 +20,8 @@ const cityReviews = reviews.filter((r) => r.city === city.name).slice(0, 3);
 
 <Base
   title={`Restoration & Remodeling in ${city.name}, FL | Coastal Property Restorations`}
-  description={`Roofing, storm damage restoration, and home remodeling in ${city.name}, Florida. Licensed & insured, 24/7 emergency response. Call 239-272-7064.`}
+  description={`Roofing, storm damage restoration, and home remodeling in ${city.name}, Florida. Licensed, bonded & insured, 24/7 emergency response. Call 239-272-7064.`}
+  breadcrumb={city.name}
 >
   <TrustBar />
 

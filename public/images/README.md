@@ -1,31 +1,57 @@
-# Image inventory — what goes here
+# Image inventory
 
-Every `.img-placeholder` in the site maps to a real photo needed from the owner
-(PHASE-1-SPEC.md §5). Convert everything to WebP/AVIF and keep the performance
-budget: total page weight < 1.5MB.
+`projects/` holds Sean's real job photos (cropped + optimized by
+`scripts/process-photos.mjs`). Everything else came from the original WordPress
+site and is likely stock — replace as real photos arrive.
 
-## Required at launch
+## ✅ Real photos now in use
 
-| File | Used on | What it is |
-|------|---------|-----------|
-| `logo.avif` ✅ | Header, splash screen | Real logo (light-on-transparent, from original site) |
-| `logo-footer.png` ✅ | Footer | White logo variant (from original site) |
-| `hero-house.avif` ✅ | Homepage hero | The house shot from the original site |
-| `services/roofing.jpg` | Homepage grid, roofing hero | Real roofing job photo |
-| `services/water-storm.jpg` | Homepage grid, restoration hero | Real storm/water job photo |
-| `services/kitchen.jpg` | Homepage grid, kitchen hero | Best finished kitchen |
-| `services/bathroom.jpg` | Homepage grid, bath hero | Best finished bathroom |
-| `owner.jpg` | About page | Owner headshot |
-| `crew.jpg` | About page | Crew/truck photo |
+| File | Used on |
+|------|---------|
+| `projects/accessible-shower-blue.avif` | Accessible Bathrooms hero + gallery, bathroom gallery, service card |
+| `projects/hex-tile-shower.avif` | Bathroom card + gallery, accessible gallery |
+| `projects/gray-bath-glass-shower.avif` | Bathroom gallery |
+| `projects/accessible-bath-cabinets.avif` | Accessible gallery, bathroom gallery |
+| `projects/cherry-kitchen-granite.avif` | Kitchen card + gallery |
+| `projects/plank-flooring-room.avif` | Flooring card + gallery |
+| `projects/flooring-kitchen-install.avif` | Flooring gallery |
+| `projects/roof-tearoff-decking.avif` | Roofing gallery |
 
-## Per service page (launch)
+Crops removed: novelty wall signs, store tags still on rugs, an untrimmed door
+jamb, and a doorframe blocking a third of one frame. See the crop notes in
+`scripts/process-photos.mjs`.
 
-- 3 before/after pairs per restoration page (roofing, water-storm-damage)
-- 6–12 finished photos per renovation page (kitchen, bathroom)
+## ⛔ Held back
 
-## Per city page
+- **Second gray-bathroom angle** — a person's face is clearly identifiable in the
+  mirror. Needs her permission before it can be published. The other angle of the
+  same bathroom is already in use, so nothing is lost by leaving it out.
 
-- 1 real project photo from that city with a short caption
+## ❗ Open questions on the photos in use
 
-Phone photos are fine. Real beats polished — no stock photography (spec: a thin
-page with stock photos hurts trust more than no page).
+- **Location.** Several of these look like they are not Southwest Florida jobs
+  (one is a basement, which SW Florida homes do not have; the roofing shot shows
+  bare deciduous trees and northern-style homes). Alt text is deliberately
+  location-neutral and **none of these appear on city pages**, which exist to
+  prove local work. Confirm provenance with Sean.
+- **Fall protection.** The roofing photo shows a worker with no visible harness
+  or anchor. Worth Sean's read before it stays up.
+
+## 🔴 Still missing — highest priority
+
+**No restoration photos at all.** Water damage, storm damage, and fire are the
+pages that generate emergency calls, and they have zero real photography. Ask for:
+
+- [ ] Tarped roof after a storm
+- [ ] Drying equipment running (air movers / dehumidifiers in place)
+- [ ] Water damage tear-out in progress
+- [ ] The same room finished after rebuild (pairs with the above = before/after)
+- [ ] Any fire or smoke damage job
+
+Also still needed:
+
+- [ ] Owner headshot + crew/truck photo (About page)
+- [ ] One real project photo per city (Punta Gorda, Port Charlotte, Fort Myers)
+- [ ] Before/after **pairs** — singles are fine, pairs sell
+
+Phone photos are fine. Real beats polished.

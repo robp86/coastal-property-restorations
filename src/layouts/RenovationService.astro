@@ -20,6 +20,9 @@ interface Props {
   faqs: { q: string; a: string }[];
   /* Real photos for the gallery; placeholders shown until provided */
   gallery?: { src: string; alt: string }[];
+  /* SEO: short label for breadcrumbs, and Service schema copy */
+  label: string;
+  serviceDescription: string;
 }
 
 const {
@@ -32,10 +35,18 @@ const {
   costFactors,
   faqs,
   gallery,
+  label,
+  serviceDescription,
 } = Astro.props;
 ---
 
-<Base title={metaTitle} description={metaDescription}>
+<Base
+  title={metaTitle}
+  description={metaDescription}
+  ogImage={gallery?.[0]?.src}
+  breadcrumb={label}
+  service={{ name: label, description: serviceDescription }}
+>
   <TrustBar />
 
   <section class="hero section">
