@@ -12,27 +12,36 @@ const { items, heading = 'What Homeowners Say' } = Astro.props;
 <section class="section section--soft">
   <div class="container">
     <h2 class="center">{heading}</h2>
-    <div class="grid grid--3">
+    <div class={`grid ${items.length >= 3 ? 'grid--3' : 'grid--2'} reviews`}>
       {items.map((r) => (
         <blockquote class="review card">
-          <p class="review__stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p>“{r.quote}”</p>
-          <footer class="muted">
-            — {r.name}, {r.city} · {r.source}
+          {/* Stars only when the reviewer actually gave a rating */}
+          {r.rating && (
+            <p class="review__stars" aria-label={`${r.rating} out of 5 stars`}>
+              {'★'.repeat(r.rating)}
+            </p>
+          )}
+          <p class="review__quote">“{r.excerpt}”</p>
+          <footer>
+            <span class="review__name">{r.name}</span>
+            {r.role && <span class="review__role">{r.role}</span>}
+            <span class="review__meta">{r.project} · {r.city}</span>
           </footer>
         </blockquote>
       ))}
     </div>
     <p class="center" style="margin-top: 1.5rem;">
-      <a href="/reviews">Read all reviews →</a>
+      <a href="/reviews">Read the full reviews →</a>
     </p>
   </div>
 </section>
 
 <style>
+  .reviews { align-items: start; }
+
   .review {
     margin: 0;
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 
   .review__stars {
@@ -41,7 +50,20 @@ const { items, heading = 'What Homeowners Say' } = Astro.props;
     margin-bottom: 0.5rem;
   }
 
+  .review__quote {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
   .review footer {
     font-size: 0.9rem;
+    display: grid;
+    gap: 0.1rem;
+    border-top: 1px solid var(--line);
+    padding-top: 0.75rem;
   }
+
+  .review__name { font-weight: 700; }
+  .review__role { color: var(--muted); }
+  .review__meta { color: var(--muted); }
 </style>

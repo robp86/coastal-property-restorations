@@ -52,8 +52,9 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="container footer__legal">
-    {/* License number in the footer is a Florida advertising requirement (spec Q7). */}
-    <p>{site.license} · Licensed, Bonded &amp; Insured</p>
+    {/* License number in the footer is a Florida advertising requirement (spec Q7).
+        Shows automatically once site.license is filled in. */}
+    <p>{site.license && `${site.license} · `}Licensed, Bonded &amp; Insured</p>
     <p>© {year} {site.name}. All rights reserved.</p>
   </div>
 </footer>

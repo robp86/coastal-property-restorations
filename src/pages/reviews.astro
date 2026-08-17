@@ -4,35 +4,88 @@ import TrustBar from '../components/TrustBar.astro';
 import CTABand from '../components/CTABand.astro';
 import { site } from '../data/site';
 import { reviews } from '../data/reviews';
+
+// Review schema, no ratings — these came in as written testimonials without
+// stars, and inventing a rating would be fabrication.
+const schema = reviews.map((r) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: { '@type': 'HomeAndConstructionBusiness', name: site.name, '@id': `${site.url}/#business` },
+  author: { '@type': 'Person', name: r.name },
+  reviewBody: r.full.join(' '),
+  name: r.project,
+}));
 ---
 
 <Base
-  title="Customer Reviews | Coastal Property Restorations"
-  description="Real reviews from Southwest Florida homeowners — roofing, storm damage restoration, and remodeling projects by Coastal Property Restorations."
+  title="Customer Reviews | Coastal Property Restorations | Southwest Florida"
+  description="Read what Southwest Florida homeowners and organizations say about working with Coastal Property Restorations — bathroom remodeling, flooring, drywall, and restoration projects."
   breadcrumb="Reviews"
 >
+  {schema.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+
   <TrustBar />
 
   <section class="section">
-    <div class="container">
+    <div class="container" style="max-width: 46rem;">
       <h1>What Our Customers Say</h1>
       <p class="muted">
-        {/* TODO: real rating + count from Google Business Profile */}
-        ⭐ {site.googleRating} on Google ·
-        <a href={site.googleReviewUrl}>Leave us a review</a>
+        Real projects, in our customers' own words.
+        {/* TODO: add Google Business Profile review link once access is sorted */}
       </p>
 
-      <div class="grid grid--2" style="margin-top: 1.5rem;">
-        {reviews.map((r) => (
-          <blockquote class="card" style="margin: 0; padding: 1.5rem;">
-            <p style="color: #e8a020; letter-spacing: 2px; margin-bottom: 0.5rem;" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“{r.quote}”</p>
-            <footer class="muted">— {r.name}, {r.city} · {r.source}</footer>
-          </blockquote>
-        ))}
-      </div>
+      {reviews.map((r) => (
+        <article class="review card">
+          <header class="review__head">
+            <h2>{r.project}</h2>
+            <p class="review__where">{r.city}</p>
+          </header>
+          {r.full.map((para) => (
+            <p>{para}</p>
+          ))}
+          <footer class="review__by">
+            <strong>{r.name}</strong>
+            {r.role && <span>{r.role}</span>}
+          </footer>
+        </article>
+      ))}
     </div>
   </section>
 
-  <CTABand heading="Join the list of happy homeowners." emergency={false} />
+  <CTABand heading="Ready to talk about your project?" emergency={false} />
 </Base>
+
+<style>
+  .review {
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .review__head { margin-bottom: 1rem; }
+
+  .review__head h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .review__where {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .review p { line-height: 1.65; }
+
+  .review__by {
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+    margin-top: 1.25rem;
+    display: grid;
+    gap: 0.1rem;
+    font-size: 0.95rem;
+  }
+
+  .review__by span { color: var(--muted); }
+</style>

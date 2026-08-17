@@ -2,8 +2,6 @@
 // One row of real numbers only (spec §2.3). TODOs resolve from owner Q&A.
 // Red appears here and nowhere else on the site: a single live-status dot on the
 // 24/7 item (owner: "red only in small amounts").
-import { site } from '../data/site';
-
 interface Props {
   /* Homepage sets this false — its hero carries the 24/7 badge already */
   showLive?: boolean;
@@ -11,10 +9,13 @@ interface Props {
 
 const { showLive = true } = Astro.props;
 
+// Only claims we can actually stand behind. The Google rating was removed —
+// re-add it here once the real rating and review count are confirmed from the
+// Google Business Profile.
 const items = [
-  `⭐ ${site.googleRating} Google Rating`, // TODO: real rating + count
   '🛡️ Licensed, Bonded & Insured',
   '📍 Local — Punta Gorda Based',
+  '🌴 Serving Charlotte & Lee County',
 ];
 ---
 
