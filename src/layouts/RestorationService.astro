@@ -22,8 +22,11 @@ interface Props {
   faqs: { q: string; a: string }[];
   heroImage?: string;
   /* Real job photos. Section is omitted entirely when there are none — an empty
-     placeholder grid on a live site reads worse than no gallery. */
-  gallery?: { src: string; alt: string }[];
+     placeholder grid on a live site reads worse than no gallery. A caption turns
+     a photo set into a job story, which is what actually sells restoration work. */
+  gallery?: { src: string; alt: string; caption?: string }[];
+  galleryHeading?: string;
+  galleryIntro?: string;
   /* SEO: short label for breadcrumbs, and Service schema copy */
   label: string;
   serviceDescription: string;
@@ -42,6 +45,8 @@ const {
   faqs,
   heroImage,
   gallery,
+  galleryHeading,
+  galleryIntro,
   label,
   serviceDescription,
 } = Astro.props;
@@ -127,10 +132,14 @@ const heroStyle = heroImage
   {gallery && gallery.length > 0 && (
     <section class="section">
       <div class="container">
-        <h2>Recent Work</h2>
+        <h2>{galleryHeading ?? 'Recent Work'}</h2>
+        {galleryIntro && <p class="gallery-intro">{galleryIntro}</p>}
         <div class="grid grid--3">
           {gallery.map((g) => (
-            <img src={g.src} alt={g.alt} class="gallery-img" loading="lazy" />
+            <figure class="gallery-fig">
+              <img src={g.src} alt={g.alt} class="gallery-img" loading="lazy" />
+              {g.caption && <figcaption>{g.caption}</figcaption>}
+            </figure>
           ))}
         </div>
       </div>
@@ -156,11 +165,26 @@ const heroStyle = heroImage
     color: #d5e4ec;
   }
 
+  .gallery-intro {
+    max-width: 46rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-fig { margin: 0; }
+
   .gallery-img {
     width: 100%;
     height: 14rem;
     object-fit: cover;
     border-radius: var(--radius);
+  }
+
+  .gallery-fig figcaption {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-top: 0.5rem;
+    line-height: 1.45;
   }
 
   .hero__actions {

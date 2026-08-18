@@ -30,8 +30,16 @@ import { site } from '../data/site';
         </p>
         <p><strong>{site.hours}</strong></p>
 
-        {/* TODO: embed Google Map (lazy-loaded iframe — after page content, not before) */}
-        <div class="img-placeholder" style="min-height: 14rem;">Google Map embed</div>
+        {/* Keyless Google Maps embed, lazy-loaded so it never blocks the page. */}
+        <iframe
+          class="contact__map"
+          title={`Map to ${site.name}, ${site.address.city}, ${site.address.state}`}
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(
+            `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`
+          )}&output=embed`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
 
       <LeadForm />
@@ -43,6 +51,13 @@ import { site } from '../data/site';
   .contact {
     display: grid;
     gap: 2.5rem;
+  }
+
+  .contact__map {
+    width: 100%;
+    height: 16rem;
+    border: 0;
+    border-radius: var(--radius);
   }
 
   @media (min-width: 860px) {

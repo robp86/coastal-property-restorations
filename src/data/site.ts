@@ -27,8 +27,11 @@ export interface City {
   slug: string;
   name: string;
   county: string;
-  // Each city page needs ~300 genuinely local words (spec §3) — placeholder until written.
+  // Each city page needs ~300 genuinely local words (spec §3).
   intro: string;
+  // A real job from this city. Nothing renders when there isn't one yet —
+  // a stock photo on a city page defeats the whole point of a city page.
+  photo?: { src: string; alt: string; caption: string };
 }
 
 // Priority order per spec §1 — pending owner confirmation (spec Q8).
@@ -53,6 +56,12 @@ export const cities: City[] = [
     slug: 'fort-myers',
     name: 'Fort Myers',
     county: 'Lee County',
+    photo: {
+      src: '/images/projects/pinemanor-finished-hall.avif',
+      alt: 'The finished main hall of the Pine Manor Improvement Association building in Fort Myers, with new vinyl plank flooring',
+      caption:
+        'Pine Manor Improvement Association, Fort Myers — the finished main hall. We found pre-existing water damage partway through, handled the remediation and sheetrock replacement, then laid the new flooring.',
+    },
     intro:
       'We work throughout Fort Myers and Lee County, on homes and on commercial and community buildings. One project we are proud of: the Pine Manor Improvement Association, a small Fort Myers nonprofit working off donations and grant funding. We pulled old linoleum and leveled the floor for new vinyl, removed a built-in kitchen, relocated electrical, and patched and textured the walls — and when we opened things up and found pre-existing water damage, we handled the remediation and replaced the bottom of the sheetrock so they could keep going. Their board president wrote us a review about it, and you can read the whole thing on our reviews page. Ian hit Lee County hard in 2022 and a lot of homes here are still working through the aftermath. Whether it is storm and water damage or a kitchen you have been putting off, we work the whole job from start to finish.',
   },

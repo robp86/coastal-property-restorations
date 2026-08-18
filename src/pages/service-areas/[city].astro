@@ -39,9 +39,14 @@ const cityReviews = reviews.filter((r) => r.city === city.name).slice(0, 3);
         ))}
       </ul>
 
-      {/* TODO: real project photo + short story from this city when available —
-          this is what makes the page rank and convert (spec §3). */}
-      <div class="img-placeholder">Real {city.name} project photo + caption</div>
+      {/* A real job from this city when we have one. Cities without a photo yet
+          simply don't render this — never a stock stand-in (spec §3). */}
+      {city.photo && (
+        <figure class="city-photo">
+          <img src={city.photo.src} alt={city.photo.alt} loading="lazy" />
+          <figcaption>{city.photo.caption}</figcaption>
+        </figure>
+      )}
 
       {/* TODO: embedded map centered on this city */}
     </div>
@@ -53,3 +58,21 @@ const cityReviews = reviews.filter((r) => r.city === city.name).slice(0, 3);
 
   <CTABand heading={`Need help in ${city.name}? We're close.`} />
 </Base>
+
+<style>
+  .city-photo {
+    margin: 2rem 0 0;
+  }
+
+  .city-photo img {
+    width: 100%;
+    border-radius: var(--radius);
+  }
+
+  .city-photo figcaption {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-top: 0.6rem;
+    line-height: 1.5;
+  }
+</style>
