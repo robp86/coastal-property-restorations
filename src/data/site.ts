@@ -6,7 +6,9 @@ export const site = {
   url: 'https://www.coastalpropertyrestorations.com',
   phone: '239-272-7064',
   phoneHref: 'tel:+12392727064',
-  email: 'info@coastalpropertyrestorations.com', // TODO: confirm with owner
+  // Owner-confirmed inbox. Note it differs from the domain spelling
+  // ("properties"/"restorations"); that is intentional, not a typo.
+  email: 'coastalpropertiesrestorationsllc@gmail.com',
   address: {
     street: '26580 Valparaiso Dr.',
     city: 'Punta Gorda',
