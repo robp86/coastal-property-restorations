@@ -10,7 +10,7 @@ export const site = {
   phoneHref: 'tel:+12392727064',
   // Owner-confirmed inbox. Published on every page and in the LocalBusiness
   // schema, so it must be an address that is actually monitored.
-  email: 'coastalpropertyrestorations@gmail.com',
+  email: 'coastalpropertyrestorationsllc@gmail.com',
   address: {
     street: '26580 Valparaiso Dr.',
     city: 'Punta Gorda',
