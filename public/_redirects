@@ -1,0 +1,39 @@
+# 301s from the old WordPress site to the new equivalents.
+# These matter on cutover day: without them every page Google already knows
+# about turns into a 404, and the ranking built up on those URLs is thrown away.
+# Source list taken from the live coastalpropertyrestorations.com navigation.
+#
+# Format: /old-path  /new-path  301
+
+# --- Roofing (old site split this across several pages) ---
+/residential-roofing      /roofing            301
+/commercial-roofing       /roofing            301
+/hail-damage-repair       /roofing            301
+/gutters                  /roofing            301
+/soffit-fascia            /roofing            301
+
+# --- Restoration ---
+/storm-damage             /water-storm-damage 301
+/water-damage-mitigation  /water-storm-damage 301
+/mold-remediation         /water-storm-damage 301
+
+# --- Remodeling ---
+/bathroom-kitchen         /bathroom-remodeling 301
+/insulation               /drywall            301
+
+# --- Pages with no direct equivalent yet (Tier 2 backfill) ---
+# Sent to the closest useful page rather than the homepage where possible.
+/pool-enclosures          /                   301
+/siding-solutions         /                   301
+/window-and-door-services /                   301
+/services                 /                   301
+
+# --- Project gallery: no gallery page yet, reviews carry the proof ---
+/project                  /reviews            301
+/projects                 /reviews            301
+
+# --- Same-name pages the old site also had ---
+/about-us                 /about              301
+
+# Note: /about, /contact, /flooring, /painting, /drywall and /insurance-claim
+# already exist at the same paths on the new site, so they need no redirect.

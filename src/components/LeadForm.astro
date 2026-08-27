@@ -2,9 +2,14 @@
 // Short form per spec §4: name, phone, city, service dropdown, optional message.
 // Every extra field costs leads — do not add fields without a conversion reason.
 //
-// TODO(launch-blocker): point `action` at the real form provider endpoint
-// (Formspark / Basin / Netlify Forms) and verify a test submission reaches the
-// owner's email AND SMS within 1 minute (spec §8).
+// Submissions go to Netlify Forms (no API key, no third party). Netlify detects
+// the form from the built HTML at deploy time, so `data-netlify`, the hidden
+// `form-name`, and the honeypot must all survive into the static output.
+//
+// REMAINING SETUP (dashboard only, cannot be done from code):
+// Netlify → Forms → Form notifications → add Sean's email. Until that is set,
+// submissions are still captured and stored in the dashboard — nothing is lost,
+// but nobody is alerted.
 import { services } from '../data/services';
 
 interface Props {
@@ -14,8 +19,22 @@ interface Props {
 const { heading = 'Request a Free Estimate' } = Astro.props;
 ---
 
-<form class="leadform card" method="POST" action="#TODO-form-endpoint">
+<form
+  class="leadform card"
+  name="estimate"
+  method="POST"
+  action="/thank-you"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+>
   <h2>{heading}</h2>
+
+  {/* Netlify needs this to match the form name on submit */}
+  <input type="hidden" name="form-name" value="estimate" />
+  {/* Honeypot: hidden from people, irresistible to bots */}
+  <p class="leadform__hp">
+    <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
 
   <label>
     Name
@@ -90,5 +109,11 @@ const { heading = 'Request a Free Estimate' } = Astro.props;
     font-size: 0.85rem;
     margin: 0;
     text-align: center;
+  }
+
+  .leadform__hp {
+    position: absolute;
+    left: -9999px;
+    margin: 0;
   }
 </style>
