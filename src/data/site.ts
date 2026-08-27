@@ -8,9 +8,9 @@ export const site = {
   url: 'https://cpr-restorations.com',
   phone: '239-272-7064',
   phoneHref: 'tel:+12392727064',
-  // Owner-confirmed inbox. Note it differs from the domain spelling
-  // ("properties"/"restorations"); that is intentional, not a typo.
-  email: 'coastalpropertiesrestorationsllc@gmail.com',
+  // Owner-confirmed inbox. Published on every page and in the LocalBusiness
+  // schema, so it must be an address that is actually monitored.
+  email: 'coastalpropertyrestorations@gmail.com',
   address: {
     street: '26580 Valparaiso Dr.',
     city: 'Punta Gorda',
