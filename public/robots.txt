@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.coastalpropertyrestorations.com/sitemap-index.xml
+Sitemap: https://cpr-restorations.com/sitemap-index.xml

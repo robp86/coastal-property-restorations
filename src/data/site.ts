@@ -3,7 +3,9 @@
 
 export const site = {
   name: 'Coastal Property Restorations',
-  url: 'https://www.coastalpropertyrestorations.com',
+  // Canonical domain. Drives canonical tags, og:url, sitemap, and schema @id —
+  // must match the primary domain set in Netlify exactly (bare, not www).
+  url: 'https://cpr-restorations.com',
   phone: '239-272-7064',
   phoneHref: 'tel:+12392727064',
   // Owner-confirmed inbox. Note it differs from the domain spelling
