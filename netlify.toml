@@ -1,0 +1,29 @@
+# Deploy config lives here rather than in the Netlify dashboard so it is version
+# controlled and survives any dashboard or API change.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.processing.html]
+  pretty_urls = true
+
+# Security headers. Cheap to add, and a contractor site collecting names and
+# phone numbers should have them.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Hashed build assets never change under the same name — cache them hard.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
