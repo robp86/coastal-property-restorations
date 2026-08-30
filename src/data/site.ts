@@ -24,7 +24,7 @@ export const site = {
   license: '',
   googleReviewUrl: '', // TODO: direct "write a review" link once GBP access is sorted
   description:
-    'Licensed and insured roofing, storm damage restoration, and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
+    'Owner-operated roofing, storm damage restoration, and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
 };
 
 export interface City {

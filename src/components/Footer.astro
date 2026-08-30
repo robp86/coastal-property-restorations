@@ -52,9 +52,10 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="container footer__legal">
-    {/* License number in the footer is a Florida advertising requirement (spec Q7).
-        Shows automatically once site.license is filled in. */}
-    <p>{site.license && `${site.license} · `}Licensed, Bonded &amp; Insured</p>
+    {/* Florida requires the license number in advertising (Fla. Stat. 489.119(6)(b)).
+        The owner's license is still in process, so no licensing claim appears here.
+        Setting site.license restores the number AND the wording automatically. */}
+    <p>{site.license ? `${site.license} · Licensed, Bonded & Insured` : 'Locally owned and operated in Punta Gorda, FL'}</p>
     <p>© {year} {site.name}. All rights reserved.</p>
   </div>
 </footer>

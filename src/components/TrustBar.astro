@@ -9,11 +9,14 @@ interface Props {
 
 const { showLive = true } = Astro.props;
 
-// Only claims we can actually stand behind. The Google rating was removed —
-// re-add it here once the real rating and review count are confirmed from the
-// Google Business Profile.
+// Only claims we can actually stand behind.
+// REMOVED (2026-08-27): "Licensed, Bonded & Insured" — the owner's contractor
+// license is still in process, so the claim was not true. Do not restore any
+// licensing language until the license number is confirmed and verified against
+// the DBPR lookup; "bonded" and "insured" are separate claims needing separate
+// confirmation. The Google rating is likewise absent until confirmed from GBP.
 const items = [
-  '🛡️ Licensed, Bonded & Insured',
+  '🏠 Owner-Operated',
   '📍 Local — Punta Gorda Based',
   '🌴 Serving Charlotte & Lee County',
 ];
