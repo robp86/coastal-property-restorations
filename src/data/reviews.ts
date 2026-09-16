@@ -41,7 +41,7 @@ export const reviews: Review[] = [
     role: 'Board President, Pine Manor Improvement Association',
     city: 'Fort Myers, FL',
     project: 'Association Building Renovation',
-    services: ['flooring', 'drywall', 'water-storm-damage', 'painting'],
+    services: ['flooring', 'drywall', 'water-damage', 'painting'],
     excerpt:
       'Because of Sean’s work ethic, dependability and genuine care for the mission of our nonprofit, we now have a beautiful renovated association building.',
     full: [

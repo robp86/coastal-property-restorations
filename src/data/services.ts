@@ -14,16 +14,16 @@ export const services: ServiceSummary[] = [
   {
     slug: 'roofing',
     title: 'Roofing',
-    short: 'Residential roofing, storm damage repair, and insurance claim support.',
+    short: 'Residential roofing, leak repair, replacement, and insurance claim support.',
     emergency: true,
     image: '/images/services/roofing.avif',
   },
   {
-    slug: 'water-storm-damage',
-    title: 'Water & Storm Damage',
-    short: 'Hurricane, flood, and leak restoration — rapid response, insurance-ready documentation.',
+    slug: 'water-damage',
+    title: 'Water Damage Restoration',
+    short: 'Leaks, flooding, and water intrusion — rapid response, thorough drying, and full rebuild.',
     emergency: true,
-    image: '/images/services/water-storm.avif',
+    image: '/images/services/water-damage.avif',
   },
   {
     slug: 'kitchen-remodeling',

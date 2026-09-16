@@ -24,7 +24,7 @@ export const site = {
   license: '',
   googleReviewUrl: '', // TODO: direct "write a review" link once GBP access is sorted
   description:
-    'Owner-operated roofing, storm damage restoration, and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
+    'Owner-operated property restoration, roofing, and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
 };
 
 export interface City {
@@ -39,7 +39,7 @@ export interface City {
 }
 
 // Priority order per spec §1 — pending owner confirmation (spec Q8).
-// Copy below is grounded in public fact (storm history, county, housing stock) and
+// Copy below is grounded in public fact (county, housing stock, local conditions) and
 // in real completed projects. Do not add specifics that cannot be backed up.
 export const cities: City[] = [
   {
@@ -47,14 +47,14 @@ export const cities: City[] = [
     name: 'Punta Gorda',
     county: 'Charlotte County',
     intro:
-      'Punta Gorda is home. Our shop is on Valparaiso Drive, which means when something goes wrong at your house we are minutes away, not dispatched from another county. This town has been through it twice in living memory — Charley came straight up the harbor in 2004, and Ian did it again in 2022 — and a lot of what we do here still traces back to those storms and the water that came with them. We know how the older waterfront and canal-side homes around here are built, where they tend to let water in, and what Charlotte County expects when it comes time to pull a permit and get inspected. Roofing, storm and water damage, and full remodels — kitchens, baths, flooring, drywall, and paint. If you are in Punta Gorda and you are not sure whether what you are looking at is urgent, call us and we will tell you straight.',
+      'Punta Gorda is home. Our shop is on Valparaiso Drive, which means when something goes wrong at your house we are minutes away, not dispatched from another county. A lot of the housing here is older waterfront and canal-side property, and we know how these homes are built, where they tend to let water in, and what Charlotte County expects when it comes time to pull a permit and get inspected. Water damage restoration, roofing, and full remodels — kitchens, baths, flooring, drywall, and paint. If you are in Punta Gorda and you are not sure whether what you are looking at is urgent, call us and we will tell you straight.',
   },
   {
     slug: 'port-charlotte',
     name: 'Port Charlotte',
     county: 'Charlotte County',
     intro:
-      'Port Charlotte is a short drive from our shop, and much of the housing here dates to the 1960s through the 1980s — solid homes, but ones where original roofs, windows, and plumbing are now well past their intended service life. That combination is why so much of our Port Charlotte work starts as one thing and turns into another: a roof leak that has quietly been wetting decking for a season, or a bathroom remodel that uncovers rot behind a wall. We would rather find it and fix it properly than tile over it. We handle roofing and storm damage, water damage dry-out and reconstruction, and the full remodel side, and we pull permits through Charlotte County the same as we do at home in Punta Gorda.',
+      'Port Charlotte is a short drive from our shop, and much of the housing here dates to the 1960s through the 1980s — solid homes, but ones where original roofs, windows, and plumbing are now well past their intended service life. That combination is why so much of our Port Charlotte work starts as one thing and turns into another: a roof leak that has quietly been wetting decking for a season, or a bathroom remodel that uncovers rot behind a wall. We would rather find it and fix it properly than tile over it. We handle water damage dry-out and reconstruction, roofing, and the full remodel side, and we pull permits through Charlotte County the same as we do at home in Punta Gorda.',
   },
   {
     slug: 'fort-myers',
@@ -67,7 +67,7 @@ export const cities: City[] = [
         'Pine Manor Improvement Association, Fort Myers — the finished main hall. We found pre-existing water damage partway through, handled the remediation and sheetrock replacement, then laid the new flooring.',
     },
     intro:
-      'We work throughout Fort Myers and Lee County, on homes and on commercial and community buildings. One project we are proud of: the Pine Manor Improvement Association, a small Fort Myers nonprofit working off donations and grant funding. We pulled old linoleum and leveled the floor for new vinyl, removed a built-in kitchen, relocated electrical, and patched and textured the walls — and when we opened things up and found pre-existing water damage, we handled the remediation and replaced the bottom of the sheetrock so they could keep going. Their board president wrote us a review about it, and you can read the whole thing on our reviews page. Ian hit Lee County hard in 2022 and a lot of homes here are still working through the aftermath. Whether it is storm and water damage or a kitchen you have been putting off, we work the whole job from start to finish.',
+      'We work throughout Fort Myers and Lee County, on homes and on commercial and community buildings. One project we are proud of: the Pine Manor Improvement Association, a small Fort Myers nonprofit working off donations and grant funding. We pulled old linoleum and leveled the floor for new vinyl, removed a built-in kitchen, relocated electrical, and patched and textured the walls — and when we opened things up and found pre-existing water damage, we handled the remediation and replaced the bottom of the sheetrock so they could keep going. Their board president wrote us a review about it, and you can read the whole thing on our reviews page. Whether it is water damage that needs drying and rebuilding or a kitchen you have been putting off, we work the whole job from start to finish.',
   },
   {
     slug: 'pine-island',

@@ -13,9 +13,12 @@
 /soffit-fascia            /roofing            301
 
 # --- Restoration ---
-/storm-damage             /water-storm-damage 301
-/water-damage-mitigation  /water-storm-damage 301
-/mold-remediation         /water-storm-damage 301
+/storm-damage             /water-damage        301
+/water-damage-mitigation  /water-damage        301
+/mold-remediation         /water-damage        301
+
+# Slug change 2026-09-15: repositioned from storm-damage to general restoration.
+/water-storm-damage       /water-damage       301
 
 # --- Remodeling ---
 /bathroom-kitchen         /bathroom-remodeling 301
