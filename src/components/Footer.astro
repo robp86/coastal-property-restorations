@@ -56,6 +56,13 @@ const year = new Date().getFullYear();
         The owner's license is still in process, so no licensing claim appears here.
         Setting site.license restores the number AND the wording automatically. */}
     <p>{site.license ? `${site.license} · Licensed, Bonded & Insured` : 'Locally owned and operated in Punta Gorda, FL'}</p>
+    {/* Required for BBB accreditation (Todd Eikenberry, 2026-09-25): state plainly
+        that licensed trades are referred out. Keep this visible on every page for
+        as long as the contractor license is outstanding. */}
+    <p class="footer__disclaimer">
+      Electrical, plumbing, and structural work is referred to appropriately
+      licensed contractors.
+    </p>
     <p>© {year} {site.name}. All rights reserved.</p>
   </div>
 </footer>
@@ -104,6 +111,13 @@ const year = new Date().getFullYear();
     padding: 0;
     display: grid;
     gap: 0.35rem;
+  }
+
+  .footer__disclaimer {
+    width: 100%;
+    font-size: 0.8rem;
+    opacity: 0.75;
+    margin: 0;
   }
 
   .footer__legal {

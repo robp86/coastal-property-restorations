@@ -1,4 +1,7 @@
 // Tier 1 services (spec §1). Drives the homepage grid, nav, and footer links.
+// REMOVED 2026-09-25 (BBB accreditation): roofing. BBB requires the site to list
+// only services performable without a contractor license. Restore this entry and
+// src/pages/roofing.astro from git history once the license is issued.
 // Tier 2 services (fire, mold*, flooring, whole-home, exterior) get added here when
 // their pages ship. *Mold requires FL MRSR license confirmation first (spec Q2).
 
@@ -12,16 +15,9 @@ export interface ServiceSummary {
 
 export const services: ServiceSummary[] = [
   {
-    slug: 'roofing',
-    title: 'Roofing',
-    short: 'Residential roofing, leak repair, replacement, and insurance claim support.',
-    emergency: true,
-    image: '/images/services/roofing.avif',
-  },
-  {
     slug: 'water-damage',
     title: 'Water Damage Restoration',
-    short: 'Leaks, flooding, and water intrusion — rapid response, thorough drying, and full rebuild.',
+    short: 'Leaks, flooding, and water intrusion — rapid response, thorough drying, and finish repairs.',
     emergency: true,
     image: '/images/services/water-damage.avif',
   },

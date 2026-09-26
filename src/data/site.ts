@@ -24,7 +24,7 @@ export const site = {
   license: '',
   googleReviewUrl: '', // TODO: direct "write a review" link once GBP access is sorted
   description:
-    'Owner-operated property restoration, roofing, and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
+    'Owner-operated water damage restoration and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
 };
 
 export interface City {
@@ -47,14 +47,14 @@ export const cities: City[] = [
     name: 'Punta Gorda',
     county: 'Charlotte County',
     intro:
-      'Punta Gorda is home. Our shop is on Valparaiso Drive, which means when something goes wrong at your house we are minutes away, not dispatched from another county. A lot of the housing here is older waterfront and canal-side property, and we know how these homes are built, where they tend to let water in, and what Charlotte County expects when it comes time to pull a permit and get inspected. Water damage restoration, roofing, and full remodels — kitchens, baths, flooring, drywall, and paint. If you are in Punta Gorda and you are not sure whether what you are looking at is urgent, call us and we will tell you straight.',
+      'Punta Gorda is home. Our shop is on Valparaiso Drive, which means when something goes wrong at your house we are minutes away, not dispatched from another county. A lot of the housing here is older waterfront and canal-side property, and we know how these homes are built, where they tend to let water in, and what Charlotte County expects when it comes time to pull a permit and get inspected. Water damage restoration and full remodels — kitchens, baths, flooring, drywall, and paint. If you are in Punta Gorda and you are not sure whether what you are looking at is urgent, call us and we will tell you straight.',
   },
   {
     slug: 'port-charlotte',
     name: 'Port Charlotte',
     county: 'Charlotte County',
     intro:
-      'Port Charlotte is a short drive from our shop, and much of the housing here dates to the 1960s through the 1980s — solid homes, but ones where original roofs, windows, and plumbing are now well past their intended service life. That combination is why so much of our Port Charlotte work starts as one thing and turns into another: a roof leak that has quietly been wetting decking for a season, or a bathroom remodel that uncovers rot behind a wall. We would rather find it and fix it properly than tile over it. We handle water damage dry-out and reconstruction, roofing, and the full remodel side, and we pull permits through Charlotte County the same as we do at home in Punta Gorda.',
+      'Port Charlotte is a short drive from our shop, and much of the housing here dates to the 1960s through the 1980s — solid homes, but ones where original finishes and fixtures are now well past their intended service life. That combination is why so much of our Port Charlotte work starts as one thing and turns into another: a slow leak that has quietly been wetting a wall cavity for a season, or a bathroom remodel that uncovers damage behind the tile. We would rather find it and dry it out properly than cover it over. We handle water damage dry-out and the full remodel side, and we pull permits through Charlotte County the same as we do at home in Punta Gorda.',
   },
   {
     slug: 'fort-myers',
@@ -64,17 +64,17 @@ export const cities: City[] = [
       src: '/images/projects/pinemanor-finished-hall.avif',
       alt: 'The finished main hall of the Pine Manor Improvement Association building in Fort Myers, with new vinyl plank flooring',
       caption:
-        'Pine Manor Improvement Association, Fort Myers — the finished main hall. We found pre-existing water damage partway through, handled the remediation and sheetrock replacement, then laid the new flooring.',
+        'Pine Manor Improvement Association, Fort Myers — the finished main hall. We found pre-existing water damage partway through, dried it out and replaced the affected sheetrock, then laid the new flooring.',
     },
     intro:
-      'We work throughout Fort Myers and Lee County, on homes and on commercial and community buildings. One project we are proud of: the Pine Manor Improvement Association, a small Fort Myers nonprofit working off donations and grant funding. We pulled old linoleum and leveled the floor for new vinyl, removed a built-in kitchen, relocated electrical, and patched and textured the walls — and when we opened things up and found pre-existing water damage, we handled the remediation and replaced the bottom of the sheetrock so they could keep going. Their board president wrote us a review about it, and you can read the whole thing on our reviews page. Whether it is water damage that needs drying and rebuilding or a kitchen you have been putting off, we work the whole job from start to finish.',
+      'We work throughout Fort Myers and Lee County, on homes and on commercial and community buildings. One project we are proud of: the Pine Manor Improvement Association, a small Fort Myers nonprofit working off donations and grant funding. We pulled old linoleum and leveled the floor for new vinyl, removed a built-in kitchen, and patched and textured the walls — and when we opened things up and found pre-existing water damage, we dried it out and replaced the bottom of the sheetrock so they could keep going. Their board president wrote us a review about it, and you can read the whole thing on our reviews page. Whether it is water damage that needs drying and finish repairs or a kitchen you have been putting off, we work the whole job from start to finish.',
   },
   {
     slug: 'pine-island',
     name: 'Pine Island',
     county: 'Lee County',
     intro:
-      'Pine Island — Bokeelia, St. James City, Matlacha — is its own kind of building environment. The homes out here are older, often on stilts, frequently one-of-a-kind, and almost nothing about them is standard. A stock solution that works on a slab home in town simply will not fit. We remodeled a bathroom in a 1960s stilt home in Bokeelia: swapped an oversized sunken tub for a walk-in shower, added recessed lighting, replaced dated fixtures, and upgraded the window to impact-resistant glass. Partway through we found dry rot from a leak nobody knew about, so we fixed that too, which left the house sounder than when we started. That is generally how it goes out here, and we plan for it. Island homes take longer to get to and more thought to get right, and we are glad to make the drive.',
+      'Pine Island — Bokeelia, St. James City, Matlacha — is its own kind of building environment. The homes out here are older, often on stilts, frequently one-of-a-kind, and almost nothing about them is standard. A stock solution that works on a slab home in town simply will not fit. We remodeled a bathroom in a 1960s stilt home in Bokeelia: swapped an oversized sunken tub for a walk-in shower, with new tile, a new vanity, and updated finishes throughout. Partway through we found damage from a leak nobody knew about, so we dried it out and dealt with it before the new work went in. That is generally how it goes out here, and we plan for it. Island homes take longer to get to and more thought to get right, and we are glad to make the drive.',
   },
 ];
 

@@ -5,12 +5,12 @@
 #
 # Format: /old-path  /new-path  301
 
-# --- Roofing (old site split this across several pages) ---
-/residential-roofing      /roofing            301
-/commercial-roofing       /roofing            301
-/hail-damage-repair       /roofing            301
-/gutters                  /roofing            301
-/soffit-fascia            /roofing            301
+# --- Roofing: service removed 2026-09-25 pending licensing; send to home ---
+/residential-roofing      /                   301
+/commercial-roofing       /                   301
+/hail-damage-repair       /                   301
+/gutters                  /                   301
+/soffit-fascia            /                   301
 
 # --- Restoration ---
 /storm-damage             /water-damage        301
