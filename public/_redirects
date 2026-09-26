@@ -15,7 +15,11 @@
 # --- Restoration ---
 /storm-damage             /water-damage        301
 /water-damage-mitigation  /water-damage        301
-/mold-remediation         /water-damage        301
+# /mold-remediation deliberately NOT redirected to a service page. Mold
+# remediation requires a Florida MRSR licence, which the owner does not hold.
+# Funnelling mold searches to the restoration page implies a service we cannot
+# offer. Send it to the homepage instead.
+/mold-remediation         /                    301
 
 # Slug change 2026-09-15: repositioned from storm-damage to general restoration.
 /water-storm-damage       /water-damage       301

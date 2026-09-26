@@ -52,7 +52,7 @@ export const services: ServiceSummary[] = [
   {
     slug: 'drywall',
     title: 'Drywall',
-    short: 'Installation, repair, and finishing — from small patches to complete rebuilds.',
+    short: 'Installation, repair, and finishing — from small patches to full replacement.',
     emergency: false,
     image: '/images/services/drywall.avif',
   },
