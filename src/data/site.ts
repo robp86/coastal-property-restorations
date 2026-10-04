@@ -24,7 +24,9 @@ export const site = {
   license: '',
   googleReviewUrl: '', // TODO: direct "write a review" link once GBP access is sorted
   description:
-    'Owner-operated water damage restoration and home remodeling serving Punta Gorda, Port Charlotte, Fort Myers, and Southwest Florida. 24/7 emergency response.',
+    // Doubles as the homepage meta description — keep it under 155 characters
+    // so Google shows it whole instead of truncating mid-phrase.
+    'Owner-operated water damage restoration and remodeling across Southwest Florida. Punta Gorda, Port Charlotte, Fort Myers. 24/7 emergency response.',
 };
 
 export interface City {
