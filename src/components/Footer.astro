@@ -71,12 +71,26 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  /* Diagonal top edge, picking up the angled roofline in the logo mark and the
+     blue diagonal already present along the bottom of the hero photo. */
   .footer {
+    position: relative;
     background: var(--blue-dark);
     color: #dce8ef;
     margin-top: 3rem;
-    padding-block: 2.5rem 1.5rem;
+    padding-block: calc(2.5rem + 1.75rem) 1.5rem;
     font-size: 0.95rem;
+    clip-path: polygon(0 1.75rem, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Thin sky sliver riding that same diagonal */
+  .footer::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2.2rem;
+    background: linear-gradient(90deg, var(--sky), var(--blue));
+    clip-path: polygon(0 1.75rem, 100% 0, 100% 0.3rem, 0 2.05rem);
   }
 
   .footer a { color: #fff; }

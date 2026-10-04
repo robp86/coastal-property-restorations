@@ -15,8 +15,23 @@
   --bg: #ffffff;
   --bg-soft: #f2f8fc;
   --radius: 10px;
+  --radius-lg: 16px;
   --container: 72rem;
   --font: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layered shadows — two stops read as real depth where one reads as a smudge */
+  --shadow-sm: 0 1px 2px rgba(12, 36, 64, 0.06), 0 2px 6px rgba(12, 36, 64, 0.05);
+  --shadow-md: 0 2px 4px rgba(12, 36, 64, 0.06), 0 8px 20px rgba(12, 36, 64, 0.09);
+  --shadow-lg: 0 4px 8px rgba(12, 36, 64, 0.07), 0 18px 40px rgba(12, 36, 64, 0.13);
+  --ease: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect users who ask for less motion — hover lifts and transitions go away */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 * {
@@ -47,8 +62,10 @@ img {
 }
 
 h1, h2, h3 {
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 0.6em;
+  text-wrap: balance;
 }
 
 h1 { font-size: clamp(1.75rem, 5vw, 2.75rem); }
@@ -73,7 +90,26 @@ a { color: var(--blue); }
   .section { padding-block: 4rem; }
 }
 
-.section--soft { background: var(--bg-soft); }
+.section--soft {
+  background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 18%, var(--bg-soft) 82%, #fff 100%);
+}
+
+/* Short sky rule under section headings — picks up the logo's accent colour and
+   gives each block a visible starting line instead of floating text. */
+.section > .container > h2::after,
+.section > .container > .faq > h2::after {
+  content: '';
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin-top: 0.7rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--sky), var(--blue));
+}
+
+/* Centre the rule whether .center sits on the heading or on its container */
+.section > .container > h2.center::after,
+.section > .container.center > h2::after { margin-inline: auto; }
 
 /* Buttons */
 .btn {
@@ -86,7 +122,16 @@ a { color: var(--blue); }
   text-align: center;
   border: 2px solid transparent;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--ease), box-shadow var(--ease), background-color var(--ease);
 }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active { transform: translateY(0); }
 
 /* Emergency CTAs: bright logo sky blue — owner asked to keep red to small accents only */
 .btn--emergency {
@@ -114,8 +159,17 @@ a { color: var(--blue); }
 .card {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+/* Only cards that are themselves links lift — a static card lifting is noise */
+a.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--sky);
 }
 
 /* Utility */
@@ -150,25 +204,44 @@ a { color: var(--blue); }
 .steps li {
   counter-increment: step;
   position: relative;
-  padding: 1rem 1rem 1rem 3.5rem;
+  padding: 1.1rem 1.15rem 1.1rem 4rem;
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
+
+/* Connector running between the numerals, so the list reads as a sequence
+   rather than five separate boxes. Hidden on the last item. */
+.steps li::after {
+  content: '';
+  position: absolute;
+  left: 2.33rem;
+  top: 3.3rem;
+  bottom: -1.35rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky), rgba(50, 170, 222, 0.15));
+  z-index: 0;
+}
+
+.steps li:last-child::after { display: none; }
 
 .steps li::before {
   content: counter(step);
   position: absolute;
   left: 1rem;
-  top: 1rem;
-  width: 1.9rem;
-  height: 1.9rem;
+  top: 1.05rem;
+  width: 2.15rem;
+  height: 2.15rem;
   border-radius: 50%;
-  background: var(--blue);
+  background: linear-gradient(145deg, var(--blue), var(--blue-dark));
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 0.95rem;
   display: grid;
   place-items: center;
+  box-shadow: 0 0 0 4px rgba(50, 170, 222, 0.16);
+  z-index: 1;
 }
 
 /* Placeholder image block — swap for real photos (public/images/README.md) */

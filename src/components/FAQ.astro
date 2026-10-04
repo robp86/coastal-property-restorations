@@ -38,16 +38,47 @@ const faqSchema = {
 
   .faq__item {
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 0.9rem 1.1rem;
-    margin-bottom: 0.75rem;
+    border-radius: var(--radius-lg);
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 0.65rem;
     background: #fff;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--ease), box-shadow var(--ease);
+  }
+
+  .faq__item:hover { border-color: var(--sky); }
+
+  .faq__item[open] {
+    border-color: var(--sky);
+    box-shadow: var(--shadow-md);
   }
 
   .faq__item summary {
     font-weight: 700;
     cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
   }
+
+  .faq__item summary::-webkit-details-marker { display: none; }
+
+  /* Chevron drawn in CSS — no icon font, inherits the brand colour */
+  .faq__item summary::after {
+    content: '';
+    flex: none;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.4rem;
+    border-right: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    transform: rotate(45deg);
+    transition: transform var(--ease);
+  }
+
+  .faq__item[open] summary::after { transform: rotate(-135deg); }
 
   .faq__item p {
     margin: 0.75rem 0 0.25rem;

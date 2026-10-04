@@ -42,6 +42,21 @@ const { items, heading = 'What Homeowners Say' } = Astro.props;
   .review {
     margin: 0;
     padding: 1.5rem;
+    position: relative;
+    border-left: 3px solid var(--sky);
+  }
+
+  /* Oversized quote mark, kept faint so the words read over it */
+  .review::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.35rem;
+    right: 0.9rem;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--sky);
+    opacity: 0.16;
+    pointer-events: none;
   }
 
   .review__stars {
