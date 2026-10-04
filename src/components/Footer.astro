@@ -64,6 +64,9 @@ const year = new Date().getFullYear();
       licensed contractors.
     </p>
     <p>© {year} {site.name}. All rights reserved.</p>
+    {/* BBB "Safeguard Privacy" standard expects the policy reachable from every
+        page — the footer renders site-wide, so this link satisfies that. */}
+    <p><a href="/privacy">Privacy Policy</a></p>
   </div>
 </footer>
 

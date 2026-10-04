@@ -1,0 +1,170 @@
+---
+// Privacy Policy — required for BBB accreditation (BBB "Safeguard Privacy"
+// standard) and linked from the footer, so it appears on every page.
+//
+// Text supplied by the owner on 2026-10-03. Do not reword the substance: this is
+// a published commitment about how data is handled, and changing what it says
+// changes what the company has promised. Contact details are pulled from
+// site.ts so they cannot drift out of sync with the rest of the site.
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const effectiveDate = 'October 2, 2026';
+---
+
+<Base
+  title="Privacy Policy | Coastal Property Restorations"
+  description="How Coastal Property Restorations collects, uses, and safeguards personal information submitted through our website, advertising lead forms, and service requests."
+  breadcrumb="Privacy Policy"
+>
+  <section class="section">
+    <div class="container policy">
+      <h1>Privacy Policy</h1>
+      <p class="policy__meta">
+        Coastal Property Restorations, LLC<br />
+        <strong>Effective Date:</strong> {effectiveDate}
+      </p>
+
+      <p>
+        This Privacy Policy explains how Coastal Property Restorations, LLC
+        (“we,” “us,” or “our”) collects, uses, discloses, and safeguards personal
+        information when you visit our website, submit an online form, respond to
+        one of our advertisements, request an estimate, or use our services. We
+        are committed to protecting your privacy and following applicable privacy
+        practices, including the Better Business Bureau (BBB) “Safeguard Privacy”
+        standard.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        We may collect information that you voluntarily provide when you fill out
+        a form, respond to an advertisement, request a quote or estimate, or
+        contact us regarding our remodeling and restoration services.
+      </p>
+      <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Physical address or project location</li>
+        <li>Details about your remodeling or restoration project</li>
+        <li>Estimated project budget</li>
+        <li>Anticipated project timeline</li>
+      </ul>
+      <p>
+        Information may be submitted directly through our website or through
+        third-party platforms, such as Facebook and Instagram, when you complete
+        one of our advertising lead forms.
+      </p>
+      <p>
+        <strong>
+          We do not collect payment-card or other financial information through
+          our website or advertising lead forms.
+        </strong>
+      </p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We may use the information we collect to:</p>
+      <ul>
+        <li>Respond to inquiries and service requests.</li>
+        <li>Provide quotes and project estimates.</li>
+        <li>Discuss remodeling or restoration projects.</li>
+        <li>Schedule estimates, appointments, or services.</li>
+        <li>Communicate with you regarding requested or ongoing services.</li>
+        <li>Provide customer service.</li>
+        <li>Comply with applicable legal or regulatory requirements.</li>
+      </ul>
+      <p>
+        <strong>
+          We do not sell, rent, or lease your personal information to third
+          parties.
+        </strong>
+      </p>
+
+      <h2>3. Communications and Opt-Out</h2>
+      <p>
+        By providing your contact information, you may receive communications
+        from Coastal Property Restorations, LLC regarding your inquiry, estimate,
+        appointment, or project.
+      </p>
+      <p>
+        You may request that we stop contacting you at any time. For text
+        messages, you may reply <strong>STOP</strong>. You may also contact us
+        directly to request removal from our contact lists.
+      </p>
+
+      <h2>4. Access, Correction, and Deletion</h2>
+      <p>
+        You may request access to, correction of, or deletion of personal
+        information we maintain about you by contacting us using the information
+        provided below.
+      </p>
+
+      <h2>5. Information Security</h2>
+      <p>
+        We take reasonable administrative and technical measures to help protect
+        personal information against unauthorized access, disclosure, alteration,
+        or misuse. However, no method of electronic transmission or storage can
+        be guaranteed to be completely secure.
+      </p>
+
+      <h2>6. Third-Party Services</h2>
+      <p>
+        Our website and advertising may use third-party services, including
+        Facebook, Instagram, and other service providers. These third-party
+        services may collect and process information according to their own
+        privacy policies and practices.
+      </p>
+
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy periodically to reflect changes in our
+        business practices, services, or legal requirements. Updates will be
+        posted on this page with a revised effective date.
+      </p>
+
+      <h2>8. Contact Us</h2>
+      <p class="policy__contact">
+        <strong>Coastal Property Restorations, LLC</strong><br />
+        Phone: <a href={site.phoneHref}>{site.phone}</a><br />
+        Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        Website: <a href="/">cpr-restorations.com</a>
+      </p>
+      <p>
+        If you have questions about this Privacy Policy or how your personal
+        information is handled, please contact us using the information above.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .policy {
+    max-width: 46rem;
+  }
+
+  .policy__meta {
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .policy h2 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .policy ul {
+    display: grid;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .policy__contact {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    line-height: 1.8;
+  }
+</style>
