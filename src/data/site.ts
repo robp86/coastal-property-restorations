@@ -33,7 +33,7 @@ export const site = {
   metaPixelId: '1663305305304869',
   // Meta domain verification. Paste ONLY the content value from the meta tag
   // Meta provides — not the whole tag. Empty renders nothing.
-  metaDomainVerification: '',
+  metaDomainVerification: 'cu36d1rmtyb6rocm9agkl2tvav7plj',
   // Google Analytics 4. Empty = GA4 renders nowhere (phone-click tracking still
   // works and reports to Meta). Paste the G-XXXXXXXXXX Measurement ID from
   // Google Analytics > Admin > Data Streams and it goes live everywhere.
