@@ -26,7 +26,7 @@ export const site = {
   // Meta (Facebook/Instagram) Pixel. Empty = pixel renders nowhere, which is
   // safe to deploy. Paste the 15-16 digit ID from Events Manager > Data Sources
   // and it goes live on every page, with the Lead event on /thank-you.
-  metaPixelId: '',
+  metaPixelId: '2687127025078580',
   description:
     // Doubles as the homepage meta description — keep it under 155 characters
     // so Google shows it whole instead of truncating mid-phrase.
