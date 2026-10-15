@@ -1,0 +1,54 @@
+---
+/*
+  Meta (Facebook/Instagram) Pixel — base code, loaded on every page.
+
+  Renders NOTHING until site.metaPixelId is filled in, so the site is safe to
+  deploy before Sean sends the ID from Events Manager. Drop the ID into
+  src/data/site.ts and the pixel goes live everywhere on the next deploy.
+
+  This fires PageView only. The Lead event fires separately on /thank-you,
+  which Netlify reaches only after a form submission actually succeeds — so a
+  Lead is a real lead, not someone who merely looked at the form.
+
+  Privacy: the published policy already discloses that the site and its
+  advertising use third-party services including Facebook and Instagram
+  (section 6), so this is covered. If a cookie-consent banner is ever added,
+  this script needs to be gated behind it.
+*/
+import { site } from '../data/site';
+
+interface Props {
+  /* Set on /thank-you to also fire the standard Lead conversion event */
+  lead?: boolean;
+}
+
+const { lead = false } = Astro.props;
+const id = site.metaPixelId;
+---
+
+{id && (
+  <>
+    <script is:inline define:vars={{ id, lead }}>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', id);
+      fbq('track', 'PageView');
+      if (lead) fbq('track', 'Lead');
+    </script>
+
+    {/* Fallback for visitors with JavaScript disabled */}
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        alt=""
+        src={`https://www.facebook.com/tr?id=${id}&ev=${lead ? 'Lead' : 'PageView'}&noscript=1`}
+      />
+    </noscript>
+  </>
+)}

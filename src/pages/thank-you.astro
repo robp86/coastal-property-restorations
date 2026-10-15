@@ -11,6 +11,9 @@ import { site } from '../data/site';
   title="Request Received | Coastal Property Restorations"
   description="Thanks — we received your request and will be in touch shortly."
   noindex={true}
+  {/* Netlify only redirects here on a successful submission, so this is a
+      real conversion rather than a form view. */}
+  trackLead={true}
 >
   <TrustBar />
 

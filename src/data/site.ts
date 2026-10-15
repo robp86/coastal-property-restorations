@@ -23,6 +23,10 @@ export const site = {
   // placeholder — set this and both start showing it automatically.
   license: '',
   googleReviewUrl: '', // TODO: direct "write a review" link once GBP access is sorted
+  // Meta (Facebook/Instagram) Pixel. Empty = pixel renders nowhere, which is
+  // safe to deploy. Paste the 15-16 digit ID from Events Manager > Data Sources
+  // and it goes live on every page, with the Lead event on /thank-you.
+  metaPixelId: '',
   description:
     // Doubles as the homepage meta description — keep it under 155 characters
     // so Google shows it whole instead of truncating mid-phrase.

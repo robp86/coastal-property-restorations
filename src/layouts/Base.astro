@@ -3,6 +3,7 @@ import { site } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyCallBar from '../components/StickyCallBar.astro';
+import MetaPixel from '../components/MetaPixel.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
   service?: { name: string; description: string };
   /* Keeps utility pages (e.g. the form confirmation) out of search results. */
   noindex?: boolean;
+  /* Fires the Meta Lead conversion — only /thank-you should set this. */
+  trackLead?: boolean;
 }
 
 const {
@@ -25,6 +28,7 @@ const {
   breadcrumb,
   service,
   noindex = false,
+  trackLead = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
@@ -130,6 +134,8 @@ const breadcrumbSchema = breadcrumb && {
     {breadcrumbSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     )}
+    <MetaPixel lead={trackLead} />
+
     {/* TODO(launch-blocker): GA4 snippet + tel-click / form-submit events (spec §6) */}
     {/* TODO(launch-blocker): CallRail dynamic number insertion script (spec §6) */}
   </head>
