@@ -113,7 +113,10 @@ const breadcrumbSchema = breadcrumb && {
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#0c2440" />
+    <meta name=theme-color content=#0c2440 />
+    {site.metaDomainVerification && (
+      <meta name=facebook-domain-verification content={site.metaDomainVerification} />
+    )}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -138,8 +141,8 @@ const breadcrumbSchema = breadcrumb && {
     <MetaPixel lead={trackLead} />
     <Analytics />
 
-    {/* TODO(launch-blocker): GA4 snippet + tel-click / form-submit events (spec §6) */}
-    {/* TODO(launch-blocker): CallRail dynamic number insertion script (spec §6) */}
+    {/* GA4 + tel-click tracking live in Analytics.astro. CallRail (call tracking
+        with dynamic number insertion) is still outstanding — spec §6. */}
   </head>
   <body>
     <Header />

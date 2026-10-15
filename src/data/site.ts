@@ -26,7 +26,14 @@ export const site = {
   // Meta (Facebook/Instagram) Pixel. Empty = pixel renders nowhere, which is
   // safe to deploy. Paste the 15-16 digit ID from Events Manager > Data Sources
   // and it goes live on every page, with the Lead event on /thank-you.
-  metaPixelId: '2687127025078580',
+  // Pixel 1663305305304869 lives in Sean's business portfolio and is attached to
+  // the Coastal Property Restorations ad account that actually spends, so that is
+  // the one the site must fire into. (2687127025078580 was created earlier in the
+  // bare personal ad account 293041639 — wrong portfolio, no events, abandoned.)
+  metaPixelId: '1663305305304869',
+  // Meta domain verification. Paste ONLY the content value from the meta tag
+  // Meta provides — not the whole tag. Empty renders nothing.
+  metaDomainVerification: '',
   // Google Analytics 4. Empty = GA4 renders nowhere (phone-click tracking still
   // works and reports to Meta). Paste the G-XXXXXXXXXX Measurement ID from
   // Google Analytics > Admin > Data Streams and it goes live everywhere.
