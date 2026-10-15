@@ -15,6 +15,12 @@ import { site } from '../data/site';
       real conversion rather than a form view. */}
   trackLead={true}
 >
+  {/* GA4 conversion. No-ops silently until a Measurement ID is set. */}
+  <script is:inline>
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', { page_path: location.pathname });
+    }
+  </script>
   <TrustBar />
 
   <section class="section">

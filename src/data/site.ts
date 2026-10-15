@@ -27,6 +27,10 @@ export const site = {
   // safe to deploy. Paste the 15-16 digit ID from Events Manager > Data Sources
   // and it goes live on every page, with the Lead event on /thank-you.
   metaPixelId: '2687127025078580',
+  // Google Analytics 4. Empty = GA4 renders nowhere (phone-click tracking still
+  // works and reports to Meta). Paste the G-XXXXXXXXXX Measurement ID from
+  // Google Analytics > Admin > Data Streams and it goes live everywhere.
+  ga4MeasurementId: '',
   description:
     // Doubles as the homepage meta description — keep it under 155 characters
     // so Google shows it whole instead of truncating mid-phrase.

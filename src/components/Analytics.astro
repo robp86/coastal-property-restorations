@@ -1,0 +1,68 @@
+---
+/*
+  Analytics. Two independent pieces:
+
+  1. Google Analytics 4 — renders only when site.ga4MeasurementId is set, so the
+     site is safe to deploy before the ID exists. Paste a G-XXXXXXX ID into
+     src/data/site.ts and it goes live everywhere on the next deploy.
+
+  2. Phone-click tracking — works RIGHT NOW with no extra setup, because it
+     reports to whichever trackers happen to be present. For a restoration
+     business most leads arrive by phone, not by form, so without this the
+     majority of conversions are invisible. Every tel: link on the site is
+     covered: the header, the sticky mobile call bar, and every CTA.
+
+  Phone clicks report as:
+    - GA4   `contact_call`   (once a Measurement ID is set)
+    - Meta  `Contact`        (live today — lets Meta optimise ads toward
+                              people who actually call, not just form-fillers)
+*/
+import { site } from '../data/site';
+
+const ga4 = site.ga4MeasurementId;
+---
+
+{ga4 && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`}></script>
+    <script is:inline define:vars={{ ga4 }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', ga4);
+    </script>
+  </>
+)}
+
+{/* Phone-click tracking. Deliberately not gated on GA4 — it reports to the Meta
+    pixel too, which is already live, so this starts producing data immediately. */}
+<script is:inline>
+  document.addEventListener('click', function (e) {
+    var link = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (!link) return;
+
+    // Where on the page the call came from, so header vs sticky bar vs CTA can
+    // be told apart later.
+    var where = link.closest('.callbar') ? 'sticky_bar'
+              : link.closest('header')   ? 'header'
+              : link.closest('footer')   ? 'footer'
+              : 'page_body';
+
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'contact_call', {
+          link_url: link.getAttribute('href'),
+          placement: where,
+          page_path: location.pathname,
+        });
+      }
+    } catch (err) {}
+
+    try {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Contact', { placement: where });
+      }
+    } catch (err) {}
+  }, true);
+</script>
